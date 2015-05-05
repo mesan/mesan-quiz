@@ -1,5 +1,42 @@
 <resources>
+
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="list_row_min_height">50dp</dimen>
+    <dimen name="list_row_persons_min_height">90dp</dimen>
+    <dimen name="program_responsible_image_size">40dp</dimen>
+    <dimen name="program_responsible_image_size_actual">50dp</dimen>
+    <dimen name="menu_image_size">35dp</dimen>
+    <dimen name="person_image_size">80dp</dimen>
+    <dimen name="person_image_size_actual">100dp</dimen>
+    <dimen name="info_image_height">200dp</dimen>
+    <dimen name="info_gradient_height">150dp</dimen>
+
+    <!-- PADDING -->
+    <dimen name="padding_no">0dp</dimen>
+    <dimen name="padding_xxs">1dp</dimen>
+    <dimen name="padding_xs">3dp</dimen>
+    <dimen name="padding_s">5dp</dimen>
+    <dimen name="padding_m">10dp</dimen>
+    <dimen name="padding_l">15dp</dimen>
+    <dimen name="padding_xl">20dp</dimen>
+    <dimen name="padding_xxl">25dp</dimen>
+
+    <!-- TEXT SIZE -->
+    <dimen name="text_size_xxsmall">12sp</dimen>
+    <dimen name="text_size_xsmall">13sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_global">16sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
+    <dimen name="text_size_xlarge">24sp</dimen>
+    <dimen name="text_size_xxlarge">28sp</dimen>
+    <dimen name="text_size_xxxlarge">40sp</dimen>
+    <dimen name="text_size_gigantic">80sp</dimen>
+
+    <dimen name="round_button_diameter">48dp</dimen>
+    <dimen name="elevation_low">1dp</dimen>
+    <dimen name="elevation_high">4dp</dimen>
+    <dimen name="add_button_margin">16dp</dimen>
 </resources>

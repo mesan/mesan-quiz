@@ -1,6 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">MezanQuiz</string>
+    <string name="action_settings">Innstillinger</string>
+    <string name="action_refresh">Hent data</string>
+    <string name="drawer_open">Åpne meny</string>
+    <string name="drawer_close">Lukk meny</string>
+    <string name="expander">Se mer info</string>
+    <string name="responsible">Ansvarlig</string>
+    <string name="menu_item_content_description">Menyelement</string>
+    <string name="put_in_text">Skriv inn tekst&#8230;</string>
+    
+    <string name="persons_get">Henter ansatte i Mesan</string>
+    <string name="loading_data">Laster data, vennligst vent&#8230;</string>
+    
+    <string name="menu_ny_quiz">Ny quiz</string>
+    <string name="menu_info">Info</string>
+    <string name="menu_list">Huskeliste</string>
+    <string name="menu_persons">Ansatte i Mesan</string>
+    
+    <string name="authentication_login">Logg inn som Mesan-bruker</string>
+    <string name="menu_login">Logg inn</string>
+
 </resources>
