@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Base.AppTheme">
+        <item name="android:colorPrimary">@color/mesan_red</item>
+        <item name="android:colorPrimaryDark">@color/mesan_red_dark</item>
+        <item name="android:colorAccent">@color/mesan_grey</item>
+    </style>
+
+</resources>

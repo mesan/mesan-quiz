@@ -6,6 +6,7 @@
     <color name="light_grey_background">#f0f0f0</color>
     
     <color name="mesan_red">#bb131e</color>
+    <color name="mesan_red_dark">#a00000</color>
     <color name="mesan_grey">#222222</color>
     <color name="mesan_light_grey">#bbbbbb</color>
 </resources>

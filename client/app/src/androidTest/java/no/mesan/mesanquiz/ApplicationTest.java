@@ -1,4 +1,4 @@
-package no.mesan.myapplication;
+package no.mesan.mesanquiz;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
