@@ -10,12 +10,27 @@ import UIKit
 
 class SpillQuizViewController: UIViewController {
 
-    let game = GameService.getAllGames()[0]
+    //let game = GameService.getAllGames()[0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = game.name
+        
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "handleResult:",
+            name: GameService.GET_GAME_SUCCESS,
+            object: nil)
+        
+        GameService.getGame(1)
+    }
+    
+    @objc func handleResult(notification: NSNotification) {
+        if let
+            userInfo    = notification.userInfo as? [String: Game],
+            game        = userInfo[GameService.GAME_KEY] 
+        {
+            self.title = game.name
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
