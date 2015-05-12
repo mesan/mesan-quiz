@@ -1,5 +1,7 @@
 package no.mesan.mobil.mesanquiz.domain;
 
+import java.util.List;
+
 public class Game {
     private long id;
     private String name;
@@ -7,14 +9,16 @@ public class Game {
     private Person creator;
     private String topic;
     private int timeLimit;
+    private List<Question> questions;
 
-    public Game(long id, String name, int numberOfQuestions, Person creator, String topic, int timeLimit) {
+    public Game(long id, String name, int numberOfQuestions, Person creator, String topic, int timeLimit, List<Question> questions) {
         this.id = id;
         this.name = name;
         this.numberOfQuestions = numberOfQuestions;
         this.creator = creator;
         this.topic = topic;
         this.timeLimit = timeLimit;
+        this.questions = questions;
     }
 
     public Game() {
@@ -67,5 +71,13 @@ public class Game {
 
     public void setTimeLimit(int timeLimit) {
         this.timeLimit = timeLimit;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
     }
 }
