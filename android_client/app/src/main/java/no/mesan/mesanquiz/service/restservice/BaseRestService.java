@@ -25,7 +25,7 @@ public class BaseRestService {
                 .create();
 
         return new RestAdapter.Builder()
-                .setEndpoint("http://faghelg.herokuapp.com")
+                .setEndpoint("http://warm-earth-6928.herokuapp.com")
                 .setConverter(new GsonConverter(gson))
                 .setLogLevel(RestAdapter.LogLevel.BASIC)
                 .setLog(new RestAdapter.Log() {
