@@ -8,7 +8,7 @@ public class Game {
     private Person creator;
     private String topic;
     private int timeLimit;
-    private List<QuestionAbc> questions;
+    private List<Question> questions;
 
     public Game(long id, String name, Person creator, String topic, int timeLimit) {
         this.id = id;
@@ -62,11 +62,11 @@ public class Game {
         this.timeLimit = timeLimit;
     }
 
-    public List<QuestionAbc> getQuestions() {
+    public List<Question> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<QuestionAbc> questions) {
+    public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
 }

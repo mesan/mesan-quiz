@@ -2,7 +2,7 @@ package no.mesan.mobil.mesanquiz.dao;
 
 import no.mesan.mobil.mesanquiz.domain.Alternative;
 import no.mesan.mobil.mesanquiz.domain.Game;
-import no.mesan.mobil.mesanquiz.domain.QuestionAbc;
+import no.mesan.mobil.mesanquiz.domain.Question;
 import no.mesan.mobil.mesanquiz.mapper.AlternativeMapper;
 import no.mesan.mobil.mesanquiz.mapper.GameMapper;
 import no.mesan.mobil.mesanquiz.mapper.QuestionMapper;
@@ -20,7 +20,7 @@ public interface GameDao {
 
     @SqlQuery("SELECT * FROM question WHERE game_id = :gameId")
     @RegisterMapper(QuestionMapper.class)
-    List<QuestionAbc> getQuestionsForGame(@Bind("gameId") long gameId);
+    List<Question> getQuestionsForGame(@Bind("gameId") long gameId);
 
     @SqlQuery("SELECT * FROM alternative WHERE question_id = :questionId")
     @RegisterMapper(AlternativeMapper.class)

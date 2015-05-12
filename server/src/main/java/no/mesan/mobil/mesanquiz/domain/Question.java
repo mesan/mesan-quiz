@@ -2,13 +2,13 @@ package no.mesan.mobil.mesanquiz.domain;
 
 import java.util.List;
 
-public class QuestionAbc {
+public class Question {
     private long id;
     private long gameId;
     private String question;
     private List<Alternative> alternatives;
 
-    public QuestionAbc(long id, long gameId, String question) {
+    public Question(long id, long gameId, String question) {
         this.id = id;
         this.gameId = gameId;
         this.question = question;
