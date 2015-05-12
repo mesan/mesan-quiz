@@ -1,5 +1,7 @@
 package no.mesan.mobil.mesanquiz.domain;
 
+import java.util.List;
+
 /**
  * Created by Thomas on 12.05.2015.
  */
@@ -7,11 +9,21 @@ public class Question {
     private long id;
     private long gameId;
     private String question;
+    private List<Alternative> alternatives;
 
-    public Question(long id, long gameId, String question) {
+    public Question(long id, long gameId, String question, List<Alternative> alternatives) {
         this.id = id;
         this.gameId = gameId;
         this.question = question;
+        this.alternatives = alternatives;
+    }
+
+    public List<Alternative> getAlternatives() {
+        return alternatives;
+    }
+
+    public void setAlternatives(List<Alternative> alternatives) {
+        this.alternatives = alternatives;
     }
 
     public long getId() {
