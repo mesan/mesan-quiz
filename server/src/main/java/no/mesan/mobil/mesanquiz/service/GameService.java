@@ -45,14 +45,16 @@ public class GameService {
     public List<Game> getGamesForTopic(String topic) {
         List<Game> games = gameDao.getGamesForTopic(topic);
 
-        for(Game game : games) {
+        for (Game game : games) {
             addQuestionsAndAlternativesForGame(game);
         }
 
         return games;
     }
 
-//    public void saveGame(Game game) {
-//        gameDao.insert(game);
-//    }
+    public void saveGame(Game game) {
+        //gameDao.insert(game.getName());
+    }
+
+
 }
