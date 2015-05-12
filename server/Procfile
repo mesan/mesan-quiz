@@ -1,1 +1,1 @@
-web: java -jar target/mesanquiz-1.0-SNAPSHOT.jar server mesanquiz.yml
+web:   java $JAVA_OPTS -Ddw.server.connector.port=$PORT -jar target/mesanquiz-1.0-SNAPSHOT.jar server mesanquiz.yml

@@ -1,6 +1,8 @@
 package no.mesan.mobil.mesanquiz;
 
 import io.dropwizard.Application;
+import io.dropwizard.db.DataSourceFactory;
+import io.dropwizard.db.DatabaseConfiguration;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -9,6 +11,11 @@ import no.mesan.mobil.mesanquiz.dao.GameDao;
 import no.mesan.mobil.mesanquiz.resource.GameResource;
 import no.mesan.mobil.mesanquiz.service.GameService;
 import org.skife.jdbi.v2.DBI;
+
+import javax.security.auth.login.Configuration;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.sql.DriverManager;
 
 public class MesanQuizApplication extends Application<MesanQuizConfiguration> {
 
@@ -35,7 +42,7 @@ public class MesanQuizApplication extends Application<MesanQuizConfiguration> {
         IMAGE_BASE_URL = configuration.getImageServerBaseUrl();
 
         final DBIFactory factory = new DBIFactory();
-        final DBI jdbi = factory.build(environment, configuration.getDatabaseConfiguration(), "postgresql");
+        final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "postgresql");
         final GameDao gameDao = jdbi.onDemand(GameDao.class);
 
         final GameService gameService = new GameService(gameDao);
@@ -49,4 +56,6 @@ public class MesanQuizApplication extends Application<MesanQuizConfiguration> {
                 new TemplateHealthCheck(configuration.getTemplate());
         environment.healthChecks().register("template", healthCheck);
     }
+
+
 }

@@ -1,0 +1,46 @@
+template: Hello, %s!
+
+imageServerBaseUrl: http://faghelg.s3-website-eu-west-1.amazonaws.com/
+
+server:
+  type: simple
+  applicationContextPath: /
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 8080
+database:
+  # the name of your JDBC driver
+  driverClass: org.postgresql.Driver
+
+  # the username
+  user: unused-user
+
+  # the password
+  password: unused-pw
+
+  # the JDBC URL
+  url: unused-url
+
+  # any properties specific to your JDBC driver:
+  properties:
+    charSet: UTF-8
+
+  # the maximum amount of time to wait on an empty pool before throwing an exception
+  maxWaitForConnection: 1s
+
+  # the SQL query to run when validating a connection's liveness
+  validationQuery: "/* MyService Health Check */ SELECT 1"
+
+  # the minimum number of connections to keep open
+  minSize: 8
+
+  # the maximum number of connections to keep open
+  maxSize: 32
+
+  # whether or not idle connections should be validated
+  checkConnectionWhileIdle: false
+
+
+  # the maximum lifetime of an idle connection
+  #closeConnectionIfIdleFor: 1 minute
