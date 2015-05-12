@@ -201,11 +201,6 @@ public class QuestionFragment extends BaseFragment {
         return inflater.inflate(R.layout.fragment_question, container, false);
     }
 
-    @Override
-    public void init() {
-
-    }
-
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
