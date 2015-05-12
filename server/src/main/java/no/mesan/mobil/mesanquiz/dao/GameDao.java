@@ -8,6 +8,7 @@ import no.mesan.mobil.mesanquiz.mapper.GameMapper;
 import no.mesan.mobil.mesanquiz.mapper.QuestionMapper;
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
+import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 
 import java.util.List;
@@ -26,6 +27,6 @@ public interface GameDao {
     @RegisterMapper(AlternativeMapper.class)
     List<Alternative> getAlternativesForQuestion(@Bind("questionId") long questionId);
 
-//    @SqlQuery("INSERT INTO game (name) values (:name)")
-//    void insert(@Bind("name") String name);
+    @SqlUpdate("INSERT INTO game (name) values (:name)")
+    public void insert(@Bind("name") String name);
 }

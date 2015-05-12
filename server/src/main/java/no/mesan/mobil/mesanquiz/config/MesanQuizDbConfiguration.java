@@ -31,6 +31,7 @@ public class MesanQuizDbConfiguration {
                     dsf.setUser(user);
                     dsf.setPassword(password);
                     dsf.setUrl(url);
+                    dsf.setInitialSize(2);
                     dsf.setDriverClass("org.postgresql.Driver");
                     dataSourceFactory = dsf;
                     return dsf;
