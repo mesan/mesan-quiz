@@ -10,4 +10,7 @@ public interface GameDao {
     @SqlQuery("SELECT * FROM game g, person p WHERE g.id = :id AND g.creator = p.short_name")
     @RegisterMapper(GameMapper.class)
     Game getGame(@Bind("id") long id);
+
+    @SqlQuery("INSERT INTO game (name, ")
+    void insert(Game game);
 }

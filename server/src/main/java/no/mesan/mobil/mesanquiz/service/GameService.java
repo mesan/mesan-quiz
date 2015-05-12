@@ -16,4 +16,8 @@ public class GameService {
 
         return gameDao.getGame(id);
     }
+
+    public void saveGame(Game game) {
+        gameDao.insert(game);
+    }
 }
