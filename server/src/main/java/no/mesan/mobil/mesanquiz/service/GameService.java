@@ -29,6 +29,6 @@ public class GameService {
     }
 
     public void saveGame(Game game) {
-        gameDao.insert(game);
+        gameDao.insert(game.getName());
     }
 }
