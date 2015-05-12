@@ -1,16 +1,12 @@
 package no.mesan.mobil.mesanquiz.mapper;
 
-import no.mesan.mobil.mesanquiz.domain.Alternative;
 import no.mesan.mobil.mesanquiz.domain.Game;
 import no.mesan.mobil.mesanquiz.domain.Person;
-import no.mesan.mobil.mesanquiz.domain.Question;
 import org.skife.jdbi.v2.StatementContext;
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GameMapper implements ResultSetMapper<Game> {
 

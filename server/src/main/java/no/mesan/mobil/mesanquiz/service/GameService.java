@@ -3,7 +3,7 @@ package no.mesan.mobil.mesanquiz.service;
 import no.mesan.mobil.mesanquiz.dao.GameDao;
 import no.mesan.mobil.mesanquiz.domain.Alternative;
 import no.mesan.mobil.mesanquiz.domain.Game;
-import no.mesan.mobil.mesanquiz.domain.Question;
+import no.mesan.mobil.mesanquiz.domain.QuestionAbc;
 
 import java.util.List;
 
@@ -17,9 +17,9 @@ public class GameService {
 
     public Game getGame(long id) {
         Game game = gameDao.getGame(id);
-        List<Question> questionsForGame = gameDao.getQuestionsForGame(id);
+        List<QuestionAbc> questionsForGame = gameDao.getQuestionsForGame(id);
 
-        for (Question question : questionsForGame) {
+        for (QuestionAbc question : questionsForGame) {
             List<Alternative> alternativesForQuestion = gameDao.getAlternativesForQuestion(question.getId());
             question.setAlternatives(alternativesForQuestion);
         }
