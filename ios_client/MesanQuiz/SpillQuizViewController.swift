@@ -12,8 +12,12 @@ class SpillQuizViewController: UIViewController {
     
     @IBOutlet weak var questionNumber: UILabel!
     @IBOutlet weak var questionText: UITextView!
+    @IBOutlet weak var labelTimeLeft: UILabel!
     
-    let game = GameService.getAllGames()[0]
+    @IBOutlet weak var btnAlternative1: UIButton!
+    @IBOutlet weak var btnAlternative2: UIButton!
+    @IBOutlet weak var btnAlternative3: UIButton!
+    @IBOutlet weak var btnAlternative4: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

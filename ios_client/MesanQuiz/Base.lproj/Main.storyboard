@@ -95,6 +95,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="dHT-xA-IDU"/>
                     <connections>
+                        <outlet property="btnAlternative1" destination="4GI-h3-gmW" id="3hR-eU-JG8"/>
+                        <outlet property="btnAlternative2" destination="P5x-15-h87" id="KvY-I7-SOF"/>
+                        <outlet property="btnAlternative3" destination="4PA-g8-7VU" id="sOS-wd-SIv"/>
+                        <outlet property="btnAlternative4" destination="fLf-Bw-WiN" id="XFJ-Ve-6xb"/>
+                        <outlet property="labelTimeLeft" destination="ezV-RI-woO" id="GoD-lM-hGO"/>
                         <outlet property="questionNumber" destination="wmK-Tn-Qn5" id="7Q3-0a-ql0"/>
                         <outlet property="questionText" destination="yLc-cC-wdW" id="5OK-E3-8Qe"/>
                     </connections>
