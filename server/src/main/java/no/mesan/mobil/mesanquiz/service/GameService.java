@@ -1,7 +1,11 @@
 package no.mesan.mobil.mesanquiz.service;
 
 import no.mesan.mobil.mesanquiz.dao.GameDao;
+import no.mesan.mobil.mesanquiz.domain.Alternative;
 import no.mesan.mobil.mesanquiz.domain.Game;
+import no.mesan.mobil.mesanquiz.domain.Question;
+
+import java.util.List;
 
 public class GameService {
 
@@ -12,8 +16,15 @@ public class GameService {
     }
 
     public Game getGame(long id) {
-        //return new Game(1L, "Jan Eriks superquiz", 10);
+        Game game = gameDao.getGame(id);
+        List<Question> questionsForGame = gameDao.getQuestionsForGame(id);
 
-        return gameDao.getGame(id);
+        for (Question question : questionsForGame) {
+            List<Alternative> alternativesForQuestion = gameDao.getAlternativesForQuestion(question.getId());
+            question.setAlternatives(alternativesForQuestion);
+        }
+
+        game.setQuestions(questionsForGame);
+        return game;
     }
 }

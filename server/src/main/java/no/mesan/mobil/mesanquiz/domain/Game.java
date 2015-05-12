@@ -5,20 +5,17 @@ import java.util.List;
 public class Game {
     private long id;
     private String name;
-    private int numberOfQuestions;
     private Person creator;
     private String topic;
     private int timeLimit;
     private List<Question> questions;
 
-    public Game(long id, String name, int numberOfQuestions, Person creator, String topic, int timeLimit, List<Question> questions) {
+    public Game(long id, String name, Person creator, String topic, int timeLimit) {
         this.id = id;
         this.name = name;
-        this.numberOfQuestions = numberOfQuestions;
         this.creator = creator;
         this.topic = topic;
         this.timeLimit = timeLimit;
-        this.questions = questions;
     }
 
     public Game() {
@@ -39,14 +36,6 @@ public class Game {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getNumberOfQuestions() {
-        return numberOfQuestions;
-    }
-
-    public void setNumberOfQuestions(int numberOfQuestions) {
-        this.numberOfQuestions = numberOfQuestions;
     }
 
     public Person getCreator() {

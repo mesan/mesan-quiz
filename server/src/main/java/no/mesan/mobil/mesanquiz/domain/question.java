@@ -11,11 +11,10 @@ public class Question {
     private String question;
     private List<Alternative> alternatives;
 
-    public Question(long id, long gameId, String question, List<Alternative> alternatives) {
+    public Question(long id, long gameId, String question) {
         this.id = id;
         this.gameId = gameId;
         this.question = question;
-        this.alternatives = alternatives;
     }
 
     public List<Alternative> getAlternatives() {
