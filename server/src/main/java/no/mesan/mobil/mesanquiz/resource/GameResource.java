@@ -42,7 +42,7 @@ public class GameResource {
     @Timed
     @Produces(MediaType.APPLICATION_JSON)
     public Response saveGame(Game game) {
-//        gameService.saveGame(game);
+        gameService.saveGame(game);
 
         return Response.status(201).entity("{message: 'ok'}").build();
     }
