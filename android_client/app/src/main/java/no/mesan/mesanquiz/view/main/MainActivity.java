@@ -1,22 +1,26 @@
 package no.mesan.mesanquiz.view.main;
 
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import butterknife.InjectView;
 import no.mesan.mesanquiz.R;
 import no.mesan.mesanquiz.view.AbstractActivity;
 
 public class MainActivity extends AbstractActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    @InjectView(R.id.quiz_toolbar)
+    Toolbar toolbar;
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.quiz_toolbar);
-        setSupportActionBar(toolbar);
+    @Override
+    protected int getViewId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected Toolbar getToolbar() {
+        return toolbar;
     }
 
     @Override

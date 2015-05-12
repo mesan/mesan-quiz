@@ -14,13 +14,13 @@ database:
   driverClass: org.postgresql.Driver
 
   # the username
-  user: mfkoewcqnfxyfs
+  user: unused-user
 
   # the password
-  password: jKWPbDIinNyH-WniIKTsaq5swJ
+  password: unused-pw
 
   # the JDBC URL
-  url: jdbc:postgresql://ec2-184-73-165-195.compute-1.amazonaws.com:5432/d22dqb0ebgd79j?username=mfkoewcqnfxyfs&password=jKWPbDIinNyH-WniIKTsaq5swJ&ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+  url: unused-url
 
   # any properties specific to your JDBC driver:
   properties:

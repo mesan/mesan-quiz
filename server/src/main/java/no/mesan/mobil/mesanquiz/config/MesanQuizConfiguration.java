@@ -3,12 +3,14 @@ package no.mesan.mobil.mesanquiz.config;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
 import io.dropwizard.db.DataSourceFactory;
+import io.dropwizard.db.DatabaseConfiguration;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 public class MesanQuizConfiguration extends Configuration {
+
     @NotEmpty
     private String template;
 
@@ -40,10 +42,24 @@ public class MesanQuizConfiguration extends Configuration {
 
     @Valid
     @NotNull
-    @JsonProperty
     private DataSourceFactory database = new DataSourceFactory();
-    public DataSourceFactory getDatabaseConfiguration() {
+
+    @JsonProperty("database")
+    public DataSourceFactory getDataSourceFactory() {
+
+        String databaseUrl = System.getenv("DATABASE_URL");
+        if (databaseUrl == null) {
+            // TODO try to use local config?
+            throw new RuntimeException("No database url available");
+        }
+        DatabaseConfiguration databaseConfiguration = MesanQuizDbConfiguration.create(databaseUrl);
+        database = databaseConfiguration.getDataSourceFactory(null);
         return database;
+    }
+
+    @JsonProperty("database")
+    public void setDataSourceFactory(DataSourceFactory dataSourceFactory) {
+        this.database = dataSourceFactory;
     }
 
     public String getImageServerBaseUrl() {
