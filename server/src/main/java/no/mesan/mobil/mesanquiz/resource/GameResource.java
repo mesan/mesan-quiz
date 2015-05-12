@@ -26,4 +26,5 @@ public class GameResource {
     public Game getGame(@PathParam("id") long id) {
         return gameService.getGame(id);
     }
+
 }
