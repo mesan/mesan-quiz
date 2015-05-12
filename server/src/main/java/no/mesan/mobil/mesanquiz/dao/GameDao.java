@@ -14,9 +14,17 @@ import java.util.List;
 
 public interface GameDao {
 
+    @SqlQuery("SELECT * FROM game g, person p WHERE g.creator = p.short_name")
+    @RegisterMapper(GameMapper.class)
+    List<Game> getGames();
+
     @SqlQuery("SELECT * FROM game g, person p WHERE g.id = :id AND g.creator = p.short_name")
     @RegisterMapper(GameMapper.class)
     Game getGame(@Bind("id") long id);
+
+    @SqlQuery("SELECT * FROM game g, person p WHERE LOWER(g.topic) = LOWER(:topic) AND g.creator = p.short_name")
+    @RegisterMapper(GameMapper.class)
+    List<Game> getGamesForTopic(@Bind("topic") String topic);
 
     @SqlQuery("SELECT * FROM question WHERE game_id = :gameId")
     @RegisterMapper(QuestionMapper.class)

@@ -2,9 +2,6 @@ package no.mesan.mobil.mesanquiz.domain;
 
 import java.util.List;
 
-/**
- * Created by Thomas on 12.05.2015.
- */
 public class Question {
     private long id;
     private long gameId;

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Spill Quiz View Controller-->
@@ -16,9 +17,92 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 / 10:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmK-Tn-Qn5">
+                                <rect key="frame" x="16" y="72" width="568" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GI-h3-gmW">
+                                <rect key="frame" x="16" y="383" width="568" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Alternativ 1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5x-15-h87">
+                                <rect key="frame" x="16" y="427" width="568" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Alternativ 2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PA-g8-7VU">
+                                <rect key="frame" x="16" y="471" width="568" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Alternativ 3">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLf-Bw-WiN">
+                                <rect key="frame" x="16" y="515" width="568" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Alternativ 4">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="Spørsmåltekst" translatesAutoresizingMaskIntoConstraints="NO" id="yLc-cC-wdW">
+                                <rect key="frame" x="16" y="118" width="568" height="257"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 sekunder igjen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezV-RI-woO">
+                                <rect key="frame" x="16" y="559" width="568" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wmK-Tn-Qn5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="6Mb-7o-R0W"/>
+                            <constraint firstItem="ezV-RI-woO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="8tV-Ww-gdP"/>
+                            <constraint firstItem="fLf-Bw-WiN" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="9uc-7r-a67"/>
+                            <constraint firstItem="4PA-g8-7VU" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="AU5-yc-0v9"/>
+                            <constraint firstItem="4GI-h3-gmW" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="CCj-C4-g4W"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ezV-RI-woO" secondAttribute="bottom" constant="17" id="Gtz-qg-hhQ"/>
+                            <constraint firstItem="yLc-cC-wdW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="MNS-VM-3gb"/>
+                            <constraint firstItem="4GI-h3-gmW" firstAttribute="top" secondItem="yLc-cC-wdW" secondAttribute="bottom" constant="8" id="Okh-Wx-Jd4"/>
+                            <constraint firstItem="yLc-cC-wdW" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="U69-Ht-x48"/>
+                            <constraint firstItem="4PA-g8-7VU" firstAttribute="top" secondItem="P5x-15-h87" secondAttribute="bottom" constant="8" id="UbF-D0-lCy"/>
+                            <constraint firstItem="yLc-cC-wdW" firstAttribute="top" secondItem="wmK-Tn-Qn5" secondAttribute="bottom" constant="8" id="VVd-mS-N9t"/>
+                            <constraint firstItem="fLf-Bw-WiN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="VuX-ob-i2K"/>
+                            <constraint firstItem="P5x-15-h87" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="WTZ-0E-tzP"/>
+                            <constraint firstItem="4GI-h3-gmW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Wbr-1j-5bR"/>
+                            <constraint firstItem="P5x-15-h87" firstAttribute="top" secondItem="4GI-h3-gmW" secondAttribute="bottom" constant="8" id="bD0-yS-izp"/>
+                            <constraint firstItem="P5x-15-h87" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="bZR-mJ-rvi"/>
+                            <constraint firstItem="4PA-g8-7VU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="cBG-q5-lxY"/>
+                            <constraint firstItem="ezV-RI-woO" firstAttribute="top" secondItem="fLf-Bw-WiN" secondAttribute="bottom" constant="8" id="eip-qD-WvF"/>
+                            <constraint firstItem="wmK-Tn-Qn5" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="fOQ-Aj-7tC"/>
+                            <constraint firstAttribute="centerY" secondItem="yLc-cC-wdW" secondAttribute="centerY" constant="53.5" id="hHZ-I4-hlb"/>
+                            <constraint firstItem="wmK-Tn-Qn5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="kpN-eb-SB6"/>
+                            <constraint firstItem="wmK-Tn-Qn5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="p65-d7-qsB"/>
+                            <constraint firstItem="ezV-RI-woO" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="rFg-Pi-D7T"/>
+                            <constraint firstItem="fLf-Bw-WiN" firstAttribute="top" secondItem="4PA-g8-7VU" secondAttribute="bottom" constant="8" id="wID-Oq-ays"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dHT-xA-IDU"/>
+                    <connections>
+                        <outlet property="btnAlternative1" destination="4GI-h3-gmW" id="3hR-eU-JG8"/>
+                        <outlet property="btnAlternative2" destination="P5x-15-h87" id="KvY-I7-SOF"/>
+                        <outlet property="btnAlternative3" destination="4PA-g8-7VU" id="sOS-wd-SIv"/>
+                        <outlet property="btnAlternative4" destination="fLf-Bw-WiN" id="XFJ-Ve-6xb"/>
+                        <outlet property="labelTimeLeft" destination="ezV-RI-woO" id="GoD-lM-hGO"/>
+                        <outlet property="questionNumber" destination="wmK-Tn-Qn5" id="7Q3-0a-ql0"/>
+                        <outlet property="questionText" destination="yLc-cC-wdW" id="5OK-E3-8Qe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
