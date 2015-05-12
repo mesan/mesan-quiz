@@ -3,7 +3,6 @@ package no.mesan.mobil.mesanquiz.config;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.db.DatabaseConfiguration;
 
-import javax.security.auth.login.Configuration;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -38,6 +37,7 @@ public class MesanQuizDbConfiguration {
                 }
             };
         } catch (URISyntaxException e) {
+            throw new RuntimeException("Somehting went wrong with db connection setup", e);
         }
 
         return databaseConfiguration;
