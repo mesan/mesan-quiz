@@ -26,6 +26,6 @@ public interface GameDao {
     @RegisterMapper(AlternativeMapper.class)
     List<Alternative> getAlternativesForQuestion(@Bind("questionId") long questionId);
 
-    @SqlQuery("INSERT INTO game (name) values (:name)")
-    void insert(@Bind("name") String name);
+//    @SqlQuery("INSERT INTO game (name) values (:name)")
+//    void insert(@Bind("name") String name);
 }
