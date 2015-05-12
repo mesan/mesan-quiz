@@ -21,7 +21,7 @@ public class GameJob extends AbstractJob {
 
     @Override
     protected void work() throws Throwable {
-        GameDto game = BaseRestService.getGameRestService().getGame();
+        GameDto game = BaseRestService.getGameRestService().getGame(1);
         new GameDataBaseService(context).saveGame(game);
         BusProvider.getInstance().post(new EventsStoredSimpleFeedback("Events stored!"));
         BusProvider.getInstance().post(new GameEvent(game));

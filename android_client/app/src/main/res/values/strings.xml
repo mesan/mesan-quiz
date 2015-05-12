@@ -3,6 +3,7 @@
 
     <string name="app_name">MezanQuiz</string>
     <string name="action_settings">Innstillinger</string>
+    <string name="action_new_game">Nytt spill</string>
     <string name="action_refresh">Hent data</string>
     <string name="drawer_open">Åpne meny</string>
     <string name="drawer_close">Lukk meny</string>
