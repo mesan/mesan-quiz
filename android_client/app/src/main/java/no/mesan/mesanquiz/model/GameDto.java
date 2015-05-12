@@ -6,12 +6,39 @@ import java.util.List;
 
 public class GameDto extends SugarRecord<GameDto> {
 
+    private String name;
+    private int numberOfQuestions;
+    private PersonDto creator;
     private String topic;
-    private String shortname;
+    private int timeLimit;
     private List<QuestionDto> questions;
 
     public GameDto() {
         super();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getNumberOfQuestions() {
+        return numberOfQuestions;
+    }
+
+    public void setNumberOfQuestions(int numberOfQuestions) {
+        this.numberOfQuestions = numberOfQuestions;
+    }
+
+    public PersonDto getCreator() {
+        return creator;
+    }
+
+    public void setCreator(PersonDto creator) {
+        this.creator = creator;
     }
 
     public String getTopic() {
@@ -22,12 +49,12 @@ public class GameDto extends SugarRecord<GameDto> {
         this.topic = topic;
     }
 
-    public String getShortname() {
-        return shortname;
+    public int getTimeLimit() {
+        return timeLimit;
     }
 
-    public void setShortname(String shortname) {
-        this.shortname = shortname;
+    public void setTimeLimit(int timeLimit) {
+        this.timeLimit = timeLimit;
     }
 
     public List<QuestionDto> getQuestions() {
