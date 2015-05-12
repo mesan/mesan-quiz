@@ -1,4 +1,4 @@
-package no.mesan.mesanquiz.service;
+package no.mesan.mesanquiz.service.restservice;
 
 import android.util.Log;
 
@@ -10,12 +10,13 @@ import org.joda.time.DateTime;
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 
-/**
- * Created by n06849 on 22.04.2015.
- */
 public class BaseRestService {
     public static ProgramService getProgramService() {
         return getRestAdapter().create(ProgramService.class);
+    }
+
+    public static GameRestService getGameRestService() {
+        return getRestAdapter().create(GameRestService.class);
     }
 
     private static RestAdapter getRestAdapter() {
