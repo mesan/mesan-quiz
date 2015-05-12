@@ -1,13 +1,10 @@
 package no.mesan.mesanquiz.view.main;
 
-import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -20,11 +17,11 @@ import butterknife.InjectView;
 import no.mesan.mesanquiz.R;
 import no.mesan.mesanquiz.view.AbstractActivity;
 import no.mesan.mesanquiz.view.MenuAdapter;
+import no.mesan.mesanquiz.view.model.MenuItem;
 
 public class MainActivity extends AbstractActivity {
 
-    private List<no.mesan.mesanquiz.view.model.MenuItem> menuItems;
-    private Context context;
+    private List<MenuItem> menuItems;
     private MenuAdapter menuAdapter;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private String title;
@@ -51,7 +48,6 @@ public class MainActivity extends AbstractActivity {
         setSupportActionBar(toolbar);
 
         setTitle("");
-        context = this;
 
         menuItems = new ArrayList<>();
 /*        menuItems.add(new MenuItem(getString(R.string.menu_program), R.drawable.menu_program), ProgramFragment_.class);
@@ -137,17 +133,6 @@ public class MainActivity extends AbstractActivity {
         // Handle your other action bar items...
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        // If the nav drawer is open, hide action items related to the content
-        // view
-        // if (drawerLayout != null) {
-        // boolean drawerOpen = drawerLayout.isDrawerOpen(navigationDrawer);
-        // }
-        // menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
-        return super.onPrepareOptionsMenu(menu);
     }
 
     /**
