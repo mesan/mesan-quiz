@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
-def AAVersion = '3.2'
 
 buildscript {
     repositories {
@@ -60,6 +59,4 @@ dependencies {
     compile('com.microsoft.aad:adal:1.0.9') {
         exclude group: 'com.android.support'
     }
-    apt "org.androidannotations:androidannotations:$AAVersion"
-    compile "org.androidannotations:androidannotations-api:$AAVersion"
 }
