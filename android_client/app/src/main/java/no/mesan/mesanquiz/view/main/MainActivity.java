@@ -1,12 +1,14 @@
-package no.mesan.mesanquiz;
+package no.mesan.mesanquiz.view.main;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import no.mesan.mesanquiz.R;
+import no.mesan.mesanquiz.view.AbstractActivity;
+
+public class MainActivity extends AbstractActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
