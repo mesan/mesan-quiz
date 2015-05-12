@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.androidannotations.annotations.AfterViews;
-
 /**
  * Created by kristint on 5/12/2015.
  */
@@ -22,8 +20,5 @@ public abstract class BaseFragment extends Fragment {
 
         return super.onCreateView(inflater, container, savedInstanceState);
     }
-
-    @AfterViews
-    public abstract void init();
 
 }

@@ -4,11 +4,19 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 import no.mesan.mesanquiz.R;
+import no.mesan.mesanquiz.model.GameDto;
+import no.mesan.mesanquiz.model.QuestionDto;
 import no.mesan.mesanquiz.view.BaseFragment;
 
 /**
@@ -28,6 +36,8 @@ public class QuestionFragment extends BaseFragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private GameDto game = new GameDto();
 
     private OnFragmentInteractionListener mListener;
 
@@ -60,6 +70,128 @@ public class QuestionFragment extends BaseFragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        game.setQuestions(new List<QuestionDto>() {
+            @Override
+            public void add(int location, QuestionDto object) {
+
+            }
+
+            @Override
+            public boolean add(QuestionDto object) {
+                return false;
+            }
+
+            @Override
+            public boolean addAll(int location, Collection<? extends QuestionDto> collection) {
+                return false;
+            }
+
+            @Override
+            public boolean addAll(Collection<? extends QuestionDto> collection) {
+                return false;
+            }
+
+            @Override
+            public void clear() {
+
+            }
+
+            @Override
+            public boolean contains(Object object) {
+                return false;
+            }
+
+            @Override
+            public boolean containsAll(Collection<?> collection) {
+                return false;
+            }
+
+            @Override
+            public QuestionDto get(int location) {
+                return null;
+            }
+
+            @Override
+            public int indexOf(Object object) {
+                return 0;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return false;
+            }
+
+            @NonNull
+            @Override
+            public Iterator<QuestionDto> iterator() {
+                return null;
+            }
+
+            @Override
+            public int lastIndexOf(Object object) {
+                return 0;
+            }
+
+            @NonNull
+            @Override
+            public ListIterator<QuestionDto> listIterator() {
+                return null;
+            }
+
+            @NonNull
+            @Override
+            public ListIterator<QuestionDto> listIterator(int location) {
+                return null;
+            }
+
+            @Override
+            public QuestionDto remove(int location) {
+                return null;
+            }
+
+            @Override
+            public boolean remove(Object object) {
+                return false;
+            }
+
+            @Override
+            public boolean removeAll(Collection<?> collection) {
+                return false;
+            }
+
+            @Override
+            public boolean retainAll(Collection<?> collection) {
+                return false;
+            }
+
+            @Override
+            public QuestionDto set(int location, QuestionDto object) {
+                return null;
+            }
+
+            @Override
+            public int size() {
+                return 0;
+            }
+
+            @NonNull
+            @Override
+            public List<QuestionDto> subList(int start, int end) {
+                return null;
+            }
+
+            @NonNull
+            @Override
+            public Object[] toArray() {
+                return new Object[0];
+            }
+
+            @NonNull
+            @Override
+            public <T> T[] toArray(T[] array) {
+                return null;
+            }
+        });
     }
 
     @Override
