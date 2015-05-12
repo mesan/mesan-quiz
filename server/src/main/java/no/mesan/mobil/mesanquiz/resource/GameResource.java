@@ -18,6 +18,11 @@ public class GameResource {
     public GameResource(GameService gameService) {
         this.gameService = gameService;
     }
+    @GET
+    @Timed
+    public List<Game> getGames() {
+        return gameService.getGames();
+    }
 
     @GET
     @Path("/{id}")
@@ -26,11 +31,18 @@ public class GameResource {
         return gameService.getGame(id);
     }
 
+    @GET
+    @Path("/topic/{topic}")
+    @Timed
+    public List<Game> getGamesForTopic(@PathParam("topic") String topic) {
+        return gameService.getGamesForTopic(topic);
+    }
+
     @POST
     @Timed
     @Produces(MediaType.APPLICATION_JSON)
     public Response saveGame(Game game) {
-        gameService.saveGame(game);
+//        gameService.saveGame(game);
 
         return Response.status(201).entity("{message: 'ok'}").build();
     }
