@@ -1,13 +1,10 @@
 package no.mesan.mesanquiz.view.main;
-
+/*
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.otto.Subscribe;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -17,7 +14,6 @@ import no.mesan.mesanquiz.event.ProgramEvent;
 import no.mesan.mesanquiz.event.ProgramFromDatabaseEvent;
 import no.mesan.mesanquiz.job.GetProgramFromDatabaseJob;
 import no.mesan.mesanquiz.job.ProgramJob;
-import no.mesan.mesanquiz.model.EventDto;
 import no.mesan.mesanquiz.view.AbstractActivity;
 
 
@@ -68,3 +64,4 @@ public class MainHackActivity extends AbstractActivity {
         Toast.makeText(getApplicationContext(), feedback.getMessageToUser(), Toast.LENGTH_LONG).show();
     }
 }
+*/
