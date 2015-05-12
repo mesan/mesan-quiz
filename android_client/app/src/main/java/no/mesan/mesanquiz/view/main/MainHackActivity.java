@@ -45,7 +45,7 @@ public class MainHackActivity extends AbstractActivity {
             return;
         }
 
-        textViewHello.setText("Antall innlegg: " + (programEvent.getProgramDto().getEvents() !=null? programEvent.getProgramDto().getEvents().size() : "null"));
+        textViewHello.setText("Antall innlegg: " + (programEvent.getGameDto().getEvents() !=null? programEvent.getGameDto().getEvents().size() : "null"));
     }
 
     @Subscribe
@@ -56,7 +56,7 @@ public class MainHackActivity extends AbstractActivity {
             return;
         }
 
-        textViewHello.setText("Antall innlegg i database: " + (programEvent.getProgramDto().getEvents() !=null? programEvent.getProgramDto().getEvents().size() : "null"));
+        textViewHello.setText("Antall innlegg i database: " + (programEvent.getGameDto().getEvents() !=null? programEvent.getGameDto().getEvents().size() : "null"));
     }
 
     @Subscribe

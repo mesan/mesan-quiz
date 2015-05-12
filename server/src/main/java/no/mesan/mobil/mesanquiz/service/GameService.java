@@ -27,4 +27,8 @@ public class GameService {
         game.setQuestions(questionsForGame);
         return game;
     }
+
+    public void saveGame(Game game) {
+        gameDao.insert(game);
+    }
 }

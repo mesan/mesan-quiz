@@ -6,9 +6,6 @@ import android.util.Log;
 import com.path.android.jobqueue.Job;
 import com.path.android.jobqueue.Params;
 
-/**
- * Created by n06849 on 22.04.2015.
- */
 public abstract class AbstractJob extends Job {
     public Context context;
 
