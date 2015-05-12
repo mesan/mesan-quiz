@@ -11,9 +11,7 @@ import java.sql.SQLException;
 public class GameMapper implements ResultSetMapper<Game> {
 
     public Game map(int i, ResultSet resultSet, StatementContext statementContext) throws SQLException {
-        Person creator = new Person(resultSet.getString("full_name"), resultSet.getString("short_name"));
-
-        return new Game(resultSet.getLong("id"), resultSet.getString("name"), resultSet.getInt("number_of_questions"),
-                creator, resultSet.getString("topic"), resultSet.getInt("time_limit"));
+        Person creator = new Person(resultSet.getString("full_name"), resultSet.getString("creator"));
+        return new Game(resultSet.getLong("id"), resultSet.getString("name"), creator, resultSet.getString("topic"), resultSet.getInt("time_limit"));
     }
 }

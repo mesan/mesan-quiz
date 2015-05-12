@@ -7,4 +7,9 @@
 
     <include android:id="@+id/action_drawer" layout="@layout/drawer"></include>
 
+    <TextView
+        android:id="@+id/textViewGame"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
 </FrameLayout>
