@@ -1,6 +1,7 @@
 package no.mesan.mesanquiz.view.question;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,8 @@ public class QuestionFragment extends AbstractFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((ActionBarActivity) getActivity()).getSupportActionBar().setTitle("Navn på quiz");
+
         // Inflate the layout for this fragment
         return super.onCreateView(inflater, container, savedInstanceState);
     }
