@@ -4,21 +4,13 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-
 import no.mesan.mesanquiz.R;
 import no.mesan.mesanquiz.model.GameDto;
-import no.mesan.mesanquiz.model.QuestionDto;
-import no.mesan.mesanquiz.view.BaseFragment;
+import no.mesan.mesanquiz.view.AbstractFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,7 +20,7 @@ import no.mesan.mesanquiz.view.BaseFragment;
  * Use the {@link QuestionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class QuestionFragment extends BaseFragment {
+public class QuestionFragment extends AbstractFragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -71,13 +63,19 @@ public class QuestionFragment extends BaseFragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_question, container, false);
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    protected int getViewId() {
+        return R.layout.fragment_question;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
