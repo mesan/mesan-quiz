@@ -3,7 +3,6 @@ package no.mesan.mesanquiz.view;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
 
 import com.path.android.jobqueue.JobManager;
 
@@ -13,7 +12,7 @@ import no.mesan.mesanquiz.common.BusProvider;
 public abstract class AbstractActivity extends ActionBarActivity {
 
     private JobManager jobManager;
-    private Toolbar toolbar;
+    private Bundle savedInstanceState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +20,15 @@ public abstract class AbstractActivity extends ActionBarActivity {
         setContentView(getViewId());
         ButterKnife.inject(this);
         jobManager = new JobManager(getApplicationContext());
-
-        toolbar = getToolbar();
-        setSupportActionBar(toolbar);
+        this.savedInstanceState = savedInstanceState;
+        init();
     }
 
-    protected abstract Toolbar getToolbar();
+    protected abstract void init();
+
+    protected boolean isFirstTimeAppStart() {
+        return savedInstanceState == null;
+    }
 
     @Override
     protected void onResume() {

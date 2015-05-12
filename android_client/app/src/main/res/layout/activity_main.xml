@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include android:id="@+id/quiz_toolbar" layout="@layout/app_bar"></include>
+    <include layout="@layout/app_bar"></include>
 
-    <include android:id="@+id/action_drawer" layout="@layout/drawer"></include>
+    <include layout="@layout/drawer"></include>
 
     <TextView
         android:id="@+id/textViewGame"

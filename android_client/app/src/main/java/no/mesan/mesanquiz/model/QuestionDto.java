@@ -6,17 +6,35 @@ import java.util.List;
 
 public class QuestionDto extends SugarRecord<QuestionDto> {
 
-    private GameDto game;
+    private int gameId;
+    private String question;
+    private List<AlternativeDto> alternatives;
 
     public QuestionDto() {
         super();
     }
 
-    public GameDto getGame() {
-        return game;
+    public int getGameId() {
+        return gameId;
     }
 
-    public void setGame(GameDto game) {
-        this.game = game;
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public List<AlternativeDto> getAlternatives() {
+        return alternatives;
+    }
+
+    public void setAlternatives(List<AlternativeDto> alternatives) {
+        this.alternatives = alternatives;
     }
 }

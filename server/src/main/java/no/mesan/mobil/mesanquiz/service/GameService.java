@@ -15,9 +15,24 @@ public class GameService {
         this.gameDao = gameDao;
     }
 
+    public List<Game> getGames() {
+        List<Game> games = gameDao.getGames();
+
+        for(Game game : games) {
+            addQuestionsAndAlternativesForGame(game);
+        }
+
+        return games;
+    }
+
     public Game getGame(long id) {
         Game game = gameDao.getGame(id);
-        List<Question> questionsForGame = gameDao.getQuestionsForGame(id);
+        addQuestionsAndAlternativesForGame(game);
+        return game;
+    }
+
+    private void addQuestionsAndAlternativesForGame(Game game) {
+        List<Question> questionsForGame = gameDao.getQuestionsForGame(game.getId());
 
         for (Question question : questionsForGame) {
             List<Alternative> alternativesForQuestion = gameDao.getAlternativesForQuestion(question.getId());
@@ -25,10 +40,21 @@ public class GameService {
         }
 
         game.setQuestions(questionsForGame);
-        return game;
+    }
+
+    public List<Game> getGamesForTopic(String topic) {
+        List<Game> games = gameDao.getGamesForTopic(topic);
+
+        for (Game game : games) {
+            addQuestionsAndAlternativesForGame(game);
+        }
+
+        return games;
     }
 
     public void saveGame(Game game) {
         gameDao.insert(game.getName());
     }
+
+
 }

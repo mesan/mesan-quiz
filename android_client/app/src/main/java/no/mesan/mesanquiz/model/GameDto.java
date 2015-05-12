@@ -7,7 +7,6 @@ import java.util.List;
 public class GameDto extends SugarRecord<GameDto> {
 
     private String name;
-    private int numberOfQuestions;
     private PersonDto creator;
     private String topic;
     private int timeLimit;
@@ -23,14 +22,6 @@ public class GameDto extends SugarRecord<GameDto> {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getNumberOfQuestions() {
-        return numberOfQuestions;
-    }
-
-    public void setNumberOfQuestions(int numberOfQuestions) {
-        this.numberOfQuestions = numberOfQuestions;
     }
 
     public PersonDto getCreator() {
