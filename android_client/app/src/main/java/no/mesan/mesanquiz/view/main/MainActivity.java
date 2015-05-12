@@ -1,6 +1,5 @@
 package no.mesan.mesanquiz.view.main;
 
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,16 +13,14 @@ public class MainActivity extends AbstractActivity {
     @InjectView(R.id.quiz_toolbar)
     Toolbar toolbar;
 
-/*    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setSupportActionBar(toolbar);
-    }*/
-
     @Override
     protected int getViewId() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected Toolbar getToolbar() {
+        return toolbar;
     }
 
     @Override
