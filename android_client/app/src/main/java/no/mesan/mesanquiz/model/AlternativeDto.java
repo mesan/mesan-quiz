@@ -6,7 +6,7 @@ public class AlternativeDto extends SugarRecord<AlternativeDto> {
 
     private long alternativeId;
     private String alternative;
-    private boolean isAnswer;
+    private boolean answer;
 
     public AlternativeDto() {
         super();
@@ -29,10 +29,10 @@ public class AlternativeDto extends SugarRecord<AlternativeDto> {
     }
 
     public boolean isAnswer() {
-        return isAnswer;
+        return answer;
     }
 
     public void setIsAnswer(boolean isAnswer) {
-        this.isAnswer = isAnswer;
+        this.answer = isAnswer;
     }
 }
