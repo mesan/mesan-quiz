@@ -22,6 +22,7 @@
     
     <string name="authentication_login">Logg inn som Mesan-bruker</string>
     <string name="menu_login">Logg inn</string>
+    <string name="login_in_progress">Logg-inn pågår...</string>
 
     <string name="seconds_left">sekunder igjen</string>
     <string name="title_activity_result">ResultActivity</string>
