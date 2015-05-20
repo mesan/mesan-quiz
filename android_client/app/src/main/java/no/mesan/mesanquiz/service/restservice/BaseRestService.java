@@ -11,8 +11,8 @@ import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 
 public class BaseRestService {
-    public static ProgramService getProgramService() {
-        return getRestAdapter().create(ProgramService.class);
+    public static PersonRestService getPeopleService() {
+        return getRestAdapter().create(PersonRestService.class);
     }
 
     public static GameRestService getGameRestService() {

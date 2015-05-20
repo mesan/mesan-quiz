@@ -13,7 +13,7 @@ import no.mesan.mesanquiz.R;
 import no.mesan.mesanquiz.common.ValueHolder;
 import no.mesan.mesanquiz.event.LoggedInEvent;
 import no.mesan.mesanquiz.view.AbstractFragment;
-import no.mesan.mesanquiz.view.main.LoginActivity;
+import no.mesan.mesanquiz.view.main.MainActivity;
 
 public class LoginFragment extends AbstractFragment {
 
@@ -51,12 +51,8 @@ public class LoginFragment extends AbstractFragment {
     }
 
     public void loginClicked() {
-        if (valueHolder != null && valueHolder.getAuthenticationResult() != null) {
-            // TODO: go to list of games
-//            ((LoginActivity)getActivity().l)
-        }
-        else {
-            ((LoginActivity)getActivity()).loginClicked();
+        if (valueHolder == null || valueHolder.getAuthenticationResult() == null) {
+            ((MainActivity)getActivity()).loginClicked();
             awaitingLogin = true;
         }
     }
