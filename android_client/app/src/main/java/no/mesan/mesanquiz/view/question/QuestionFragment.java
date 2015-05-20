@@ -1,6 +1,7 @@
 package no.mesan.mesanquiz.view.question;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,11 @@ import android.widget.Toast;
 
 import com.squareup.otto.Subscribe;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -49,6 +54,10 @@ public class QuestionFragment extends AbstractFragment {
     private int currentQuestion = 0;
     private int points = 0;
     private int numberOfQuestions;
+    private long timePerQuestion = 30000;
+    private CountDownTimer timer;
+    private Timer ttimer;
+
 
     public QuestionFragment() {
         // Required empty public constructor
@@ -62,6 +71,12 @@ public class QuestionFragment extends AbstractFragment {
         View view = super.onCreateView(inflater, container, savedInstanceState);
 
         getJobManager().addJobInBackground(new GameJob(getContext()));
+
+        ttimer = new Timer();
+
+        button1.setBackgroundColor(getResources().getColor(R.color.light_grey));
+        button2.setBackgroundColor(getResources().getColor(R.color.light_grey));
+        button3.setBackgroundColor(getResources().getColor(R.color.light_grey));
 
         return view;
     }
@@ -83,12 +98,28 @@ public class QuestionFragment extends AbstractFragment {
     private void updateQuestion(QuestionDto question){
         statusTextView.setText(createStatusText(currentQuestion));
         questionTextView.setText(question.getQuestion());
-        // TODO: Dynamic number of buttons ?
+        // TODO: Dynamic number of buttons?
+        int numberOfAlternatives = question.getAlternatives().size();
+        for(int i = 0; i < numberOfAlternatives; i++) {
+
+        }
+
         button1.setText(question.getAlternatives().get(0).getAlternative());
         button2.setText(question.getAlternatives().get(1).getAlternative());
         button3.setText(question.getAlternatives().get(2).getAlternative());
         //button4.setText(question.getAlternatives().get(3).getAlternative());
-        // TODO: Start timer
+
+        timer = new CountDownTimer(timePerQuestion, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftTextView.setText((int)millisUntilFinished/1000 + " " + getString(R.string.seconds_left));
+            }
+
+            @Override
+            public void onFinish() {
+                moveToNextQuestion();
+            }
+        }.start();
     }
 
     private int getPressedButtonId(Button b) {
@@ -112,17 +143,29 @@ public class QuestionFragment extends AbstractFragment {
     @OnClick({R.id.button1, R.id.button2, R.id.button3})
     public void questionAnswered(Button b) {
 
+        timer.cancel();
+
         int pressedButton = getPressedButtonId(b);
 
         if(game.getQuestions().get(currentQuestion).getAlternatives().get(pressedButton).isAnswer()) {
-            // TODO: Animation color on correct
             points += 1;
+            b.setBackgroundColor(getResources().getColor(R.color.green));
         }
         else {
-            // TODO: Animation color on correct and wrong
+            b.setBackgroundColor(getResources().getColor(R.color.mesan_red_dark));
+            // Button correct
+            if(game.getQuestions().get(currentQuestion).getAlternatives().get(0).isAnswer()) {
+                button1.setBackgroundColor(getResources().getColor(R.color.green));
+            }
+            else if(game.getQuestions().get(currentQuestion).getAlternatives().get(1).isAnswer()) {
+                button2.setBackgroundColor(getResources().getColor(R.color.green));
+            }
+            else if(game.getQuestions().get(currentQuestion).getAlternatives().get(2).isAnswer()) {
+                button3.setBackgroundColor(getResources().getColor(R.color.green));
+            }
         }
 
-        moveToNextQuestion();
+        ttimer.schedule(new QuestionTimerTask(), 1000);
     }
 
     private void moveToNextQuestion() {
@@ -143,4 +186,23 @@ public class QuestionFragment extends AbstractFragment {
     protected int getViewId() {
         return R.layout.fragment_question;
     }
+
+    class QuestionTimerTask extends TimerTask {
+
+        @Override
+        public void run() {
+            getActivity().runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    // Reset all colors
+                    button1.setBackgroundColor(getResources().getColor(R.color.light_grey));
+                    button2.setBackgroundColor(getResources().getColor(R.color.light_grey));
+                    button3.setBackgroundColor(getResources().getColor(R.color.light_grey));
+                    moveToNextQuestion();
+                }
+            });
+        }
+    }
 }
+

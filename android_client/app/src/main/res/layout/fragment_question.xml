@@ -17,14 +17,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/LargeTextSizeStyle"
-            android:text="3/10:"
             android:id="@+id/statusTextView" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/LargeTextSizeStyle"
-            android:text="Hvilket fjell er Norges tredje høyeste?"
             android:id="@+id/questionTextView"
             android:layout_marginTop="16dp"
             />
@@ -32,25 +30,21 @@
         <Button
             style="@style/QuestionButtonStyle"
             android:layout_height="wrap_content"
-            android:text="Vesle Galdhøpiggen"
             android:id="@+id/button1"/>
 
         <Button
             style="@style/QuestionButtonStyle"
             android:layout_height="wrap_content"
-            android:text="Snøhetta"
             android:id="@+id/button2" />
 
         <Button
             style="@style/QuestionButtonStyle"
             android:layout_height="wrap_content"
-            android:text="Store Skagastølstind"
             android:id="@+id/button3"/>
 
         <!--<Button
             style="@style/QuestionButtonStyle"
             android:layout_height="wrap_content"
-            android:text="Surtningssui"
             android:id="@+id/button4"
             android:layout_weight="1"
             android:layout_marginBottom="8dp" />-->
@@ -61,7 +55,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/LargeTextSizeStyle"
-        android:text="30 sekunder igjen"
         android:id="@+id/timeLeftTextView"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp" />
