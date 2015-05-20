@@ -1,27 +1,27 @@
 package no.mesan.mesanquiz.view.question;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.otto.Subscribe;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import butterknife.InjectView;
-import butterknife.OnClick;
 import butterknife.OnItemClick;
 import no.mesan.mesanquiz.R;
 import no.mesan.mesanquiz.event.GameEvent;
@@ -40,18 +40,6 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
     @InjectView(R.id.questionTextView)
     TextView questionTextView;
 
-    /*@InjectView(R.id.button1)
-    Button button1;
-
-    @InjectView(R.id.button2)
-    Button button2;
-
-    @InjectView(R.id.button3)
-    Button button3;
-
-    @InjectView(R.id.button4)
-    Button button4;*/
-
     @InjectView(R.id.alternativeList)
     ListView alternativeListView;
 
@@ -66,6 +54,8 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
     private CountDownTimer timer;
     private Timer ttimer;
     private AlternativeAdapter adapter;
+    final static String ARG_POINTS = "POINTS";
+    final static String ARG_SIZE = "SIZE";
 
     public QuestionFragment() {
         // Required empty public constructor
@@ -78,7 +68,6 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
 
         View view = super.onCreateView(inflater, container, savedInstanceState);
 
-        // TODO: Spinner before load
         getJobManager().addJobInBackground(new GameJob(getContext()));
 
         ttimer = new Timer();
@@ -88,7 +77,6 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
 
     @Subscribe
     public void gameReceived(GameEvent gameEvent) {
-        // TODO: Spinner off
         game = gameEvent.getGameDto();
         ((ActionBarActivity) getActivity()).getSupportActionBar().setTitle(game.getName());
         startGame(game);
@@ -122,44 +110,16 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
         }.start();
     }
 
-    /*
-    @OnClick({R.id.button1, R.id.button2, R.id.button3})
-    public void questionAnswered(Button b) {
-
-        timer.cancel();
-
-        int pressedButton = getPressedButtonId(b);
-
-        if(game.getQuestions().get(currentQuestion).getAlternatives().get(pressedButton).isAnswer()) {
-            points += 1;
-            b.setBackgroundColor(getResources().getColor(R.color.green));
-        }
-        else {
-            b.setBackgroundColor(getResources().getColor(R.color.mesan_red_dark));
-            // Button correct
-            if(game.getQuestions().get(currentQuestion).getAlternatives().get(0).isAnswer()) {
-                button1.setBackgroundColor(getResources().getColor(R.color.green));
-            }
-            else if(game.getQuestions().get(currentQuestion).getAlternatives().get(1).isAnswer()) {
-                button2.setBackgroundColor(getResources().getColor(R.color.green));
-            }
-            else if(game.getQuestions().get(currentQuestion).getAlternatives().get(2).isAnswer()) {
-                button3.setBackgroundColor(getResources().getColor(R.color.green));
-                // TODO: Nicer colors, perhaps blink?
-            }
-        }
-
-        ttimer.schedule(new QuestionTimerTask(), 1000);
-    }*/
-
     private void moveToNextQuestion() {
         if(currentQuestion < game.getQuestions().size() - 1 ){
             currentQuestion++;
             updateQuestion(game.getQuestions().get(currentQuestion));
         }
         else {
-            // TODO: Send to result page
-            Toast.makeText(getContext(), "Du fikk " + points + " poeng!", Toast.LENGTH_LONG).show();
+            Intent i = new Intent(getContext(), ResultActivity.class);
+            i.putExtra(ARG_POINTS, points);
+            i.putExtra(ARG_SIZE, game.getQuestions().size());
+            startActivity(i);
         }
     }
 
@@ -181,24 +141,29 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
         }
         else {
             view.setBackgroundColor(getResources().getColor(R.color.mesan_red));
-
-            for (AlternativeDto alternative : game.getQuestions().get(currentQuestion).getAlternatives()) {
+            List<AlternativeDto> alternatives = game.getQuestions().get(currentQuestion).getAlternatives();
+            for (int i = 0; i < alternatives.size(); i++) {
+                AlternativeDto alternative = alternatives.get(i);
                 if (alternative.isAnswer()) {
-                    //int position = alternative.getId();
+                    View v = (View)alternativeListView.getChildAt(i);
+                    final AnimationDrawable drawable = new AnimationDrawable();
+                    final Handler handler = new Handler();
+                    drawable.addFrame(new ColorDrawable(getResources().getColor(R.color.green)), 100);
+                    drawable.addFrame(new ColorDrawable(getResources().getColor(R.color.mesan_light_grey)), 100);
+
+                    drawable.setOneShot(false);
+
+                    v.setBackgroundDrawable(drawable);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            drawable.start();
+                        }
+                    }, 100);
+                    //v.setBackgroundColor(getResources().getColor(R.color.green));
+                    // TODO: Nicer colors, perhaps blink?
                 }
             }
-            /*
-            // Button correct
-            if(game.getQuestions().get(currentQuestion).getAlternatives().get(0).isAnswer()) {
-                button1.setBackgroundColor(getResources().getColor(R.color.green));
-            }
-            else if(game.getQuestions().get(currentQuestion).getAlternatives().get(1).isAnswer()) {
-                button2.setBackgroundColor(getResources().getColor(R.color.green));
-            }
-            else if(game.getQuestions().get(currentQuestion).getAlternatives().get(2).isAnswer()) {
-                button3.setBackgroundColor(getResources().getColor(R.color.green));
-                // TODO: Nicer colors, perhaps blink?
-            }*/
         }
 
         ttimer.schedule(new QuestionTimerTask(), 1000);
@@ -212,12 +177,6 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
 
                 @Override
                 public void run() {
-                    // Reset all colors
-
-                    /*
-                    button1.setBackgroundColor(getResources().getColor(R.color.light_grey));
-                    button2.setBackgroundColor(getResources().getColor(R.color.light_grey));
-                    button3.setBackgroundColor(getResources().getColor(R.color.light_grey));*/
                     moveToNextQuestion();
                 }
             });

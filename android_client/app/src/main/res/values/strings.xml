@@ -24,5 +24,9 @@
     <string name="menu_login">Logg inn</string>
 
     <string name="seconds_left">sekunder igjen</string>
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="returnToQuiz">Tilbake til quizoversikten</string>
 
 </resources>
