@@ -6,7 +6,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,14 +22,17 @@ import java.util.TimerTask;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
+import butterknife.OnItemClick;
 import no.mesan.mesanquiz.R;
 import no.mesan.mesanquiz.event.GameEvent;
 import no.mesan.mesanquiz.job.GameJob;
+import no.mesan.mesanquiz.model.AlternativeDto;
 import no.mesan.mesanquiz.model.GameDto;
 import no.mesan.mesanquiz.model.QuestionDto;
 import no.mesan.mesanquiz.view.AbstractFragment;
+import no.mesan.mesanquiz.view.adapter.AlternativeAdapter;
 
-public class QuestionFragment extends AbstractFragment {
+public class QuestionFragment extends AbstractFragment implements AdapterView.OnItemClickListener{
 
     @InjectView(R.id.statusTextView)
     TextView statusTextView;
@@ -35,7 +40,7 @@ public class QuestionFragment extends AbstractFragment {
     @InjectView(R.id.questionTextView)
     TextView questionTextView;
 
-    @InjectView(R.id.button1)
+    /*@InjectView(R.id.button1)
     Button button1;
 
     @InjectView(R.id.button2)
@@ -44,8 +49,11 @@ public class QuestionFragment extends AbstractFragment {
     @InjectView(R.id.button3)
     Button button3;
 
-    /*@InjectView(R.id.button4)
+    @InjectView(R.id.button4)
     Button button4;*/
+
+    @InjectView(R.id.alternativeList)
+    ListView alternativeListView;
 
     @InjectView(R.id.timeLeftTextView)
     TextView timeLeftTextView;
@@ -57,7 +65,7 @@ public class QuestionFragment extends AbstractFragment {
     private long timePerQuestion = 30000;
     private CountDownTimer timer;
     private Timer ttimer;
-
+    private AlternativeAdapter adapter;
 
     public QuestionFragment() {
         // Required empty public constructor
@@ -70,19 +78,17 @@ public class QuestionFragment extends AbstractFragment {
 
         View view = super.onCreateView(inflater, container, savedInstanceState);
 
+        // TODO: Spinner before load
         getJobManager().addJobInBackground(new GameJob(getContext()));
 
         ttimer = new Timer();
-
-        button1.setBackgroundColor(getResources().getColor(R.color.light_grey));
-        button2.setBackgroundColor(getResources().getColor(R.color.light_grey));
-        button3.setBackgroundColor(getResources().getColor(R.color.light_grey));
 
         return view;
     }
 
     @Subscribe
     public void gameReceived(GameEvent gameEvent) {
+        // TODO: Spinner off
         game = gameEvent.getGameDto();
         ((ActionBarActivity) getActivity()).getSupportActionBar().setTitle(game.getName());
         startGame(game);
@@ -98,16 +104,10 @@ public class QuestionFragment extends AbstractFragment {
     private void updateQuestion(QuestionDto question){
         statusTextView.setText(createStatusText(currentQuestion));
         questionTextView.setText(question.getQuestion());
-        // TODO: Dynamic number of buttons?
-        int numberOfAlternatives = question.getAlternatives().size();
-        for(int i = 0; i < numberOfAlternatives; i++) {
 
-        }
-
-        button1.setText(question.getAlternatives().get(0).getAlternative());
-        button2.setText(question.getAlternatives().get(1).getAlternative());
-        button3.setText(question.getAlternatives().get(2).getAlternative());
-        //button4.setText(question.getAlternatives().get(3).getAlternative());
+        adapter = new AlternativeAdapter(getContext(), question.getAlternatives());
+        alternativeListView.setAdapter(adapter);
+        alternativeListView.setOnItemClickListener(this);
 
         timer = new CountDownTimer(timePerQuestion, 1000) {
             @Override
@@ -122,24 +122,7 @@ public class QuestionFragment extends AbstractFragment {
         }.start();
     }
 
-    private int getPressedButtonId(Button b) {
-        int pressedButton = -1;
-
-        switch(b.getId()) {
-            case R.id.button1:
-                pressedButton = 0;
-                break;
-            case R.id.button2:
-                pressedButton = 1;
-                break;
-            case R.id.button3:
-                pressedButton = 2;
-                break;
-            default:
-        }
-        return pressedButton;
-    }
-
+    /*
     @OnClick({R.id.button1, R.id.button2, R.id.button3})
     public void questionAnswered(Button b) {
 
@@ -162,11 +145,12 @@ public class QuestionFragment extends AbstractFragment {
             }
             else if(game.getQuestions().get(currentQuestion).getAlternatives().get(2).isAnswer()) {
                 button3.setBackgroundColor(getResources().getColor(R.color.green));
+                // TODO: Nicer colors, perhaps blink?
             }
         }
 
         ttimer.schedule(new QuestionTimerTask(), 1000);
-    }
+    }*/
 
     private void moveToNextQuestion() {
         if(currentQuestion < game.getQuestions().size() - 1 ){
@@ -174,6 +158,7 @@ public class QuestionFragment extends AbstractFragment {
             updateQuestion(game.getQuestions().get(currentQuestion));
         }
         else {
+            // TODO: Send to result page
             Toast.makeText(getContext(), "Du fikk " + points + " poeng!", Toast.LENGTH_LONG).show();
         }
     }
@@ -187,6 +172,38 @@ public class QuestionFragment extends AbstractFragment {
         return R.layout.fragment_question;
     }
 
+    @OnItemClick(R.id.alternativeList)
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        timer.cancel();
+        if(game.getQuestions().get(currentQuestion).getAlternatives().get(position).isAnswer()) {
+            points += 1;
+            view.setBackgroundColor(getResources().getColor(R.color.green));
+        }
+        else {
+            view.setBackgroundColor(getResources().getColor(R.color.mesan_red));
+
+            for (AlternativeDto alternative : game.getQuestions().get(currentQuestion).getAlternatives()) {
+                if (alternative.isAnswer()) {
+                    //int position = alternative.getId();
+                }
+            }
+            /*
+            // Button correct
+            if(game.getQuestions().get(currentQuestion).getAlternatives().get(0).isAnswer()) {
+                button1.setBackgroundColor(getResources().getColor(R.color.green));
+            }
+            else if(game.getQuestions().get(currentQuestion).getAlternatives().get(1).isAnswer()) {
+                button2.setBackgroundColor(getResources().getColor(R.color.green));
+            }
+            else if(game.getQuestions().get(currentQuestion).getAlternatives().get(2).isAnswer()) {
+                button3.setBackgroundColor(getResources().getColor(R.color.green));
+                // TODO: Nicer colors, perhaps blink?
+            }*/
+        }
+
+        ttimer.schedule(new QuestionTimerTask(), 1000);
+    }
+
     class QuestionTimerTask extends TimerTask {
 
         @Override
@@ -196,9 +213,11 @@ public class QuestionFragment extends AbstractFragment {
                 @Override
                 public void run() {
                     // Reset all colors
+
+                    /*
                     button1.setBackgroundColor(getResources().getColor(R.color.light_grey));
                     button2.setBackgroundColor(getResources().getColor(R.color.light_grey));
-                    button3.setBackgroundColor(getResources().getColor(R.color.light_grey));
+                    button3.setBackgroundColor(getResources().getColor(R.color.light_grey));*/
                     moveToNextQuestion();
                 }
             });
