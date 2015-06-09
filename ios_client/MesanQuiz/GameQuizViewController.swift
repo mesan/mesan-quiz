@@ -19,39 +19,15 @@ class GameQuizViewController: UIViewController {
     @IBOutlet weak var btnAlternative3: UIButton!
     @IBOutlet weak var btnAlternative4: UIButton!
     
-    var gameService: GameService!
+    var game: Game!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NSNotificationCenter.defaultCenter().addObserver(
-            self,
-            selector: "handleResult:",
-            name: GameService.GET_GAME_SUCCESS,
-            object: nil)
-        
-        gameService = GameService()
-        gameService.getGame(1)
+        self.title = game.name
     }
     
-    @objc func handleResult(notification: NSNotification) {
-        if let
-            userInfo    = notification.userInfo as? [String: Game],
-            game        = userInfo[GameService.GAME_KEY] 
-        {
-            self.title = game.name
-        }
+    func fixNavigationBar() {
+        self.navigationController?.navigationBar.translucent = false
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
