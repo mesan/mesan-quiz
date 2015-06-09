@@ -45,4 +45,16 @@ class Game : Printable {
         
         return nil
     }
+    
+    class func fromJsonArray(jsonArray: NSArray) -> [Game]? {
+        var games = [Game]()
+        
+        for jsonGame in jsonArray as! [NSDictionary] {
+            if let game = Game.fromJson(jsonGame) {
+                games.append(game)
+            }
+        }
+        
+        return games
+    }
 }

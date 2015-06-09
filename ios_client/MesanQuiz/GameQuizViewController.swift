@@ -26,6 +26,10 @@ class GameQuizViewController: UIViewController {
     var countDownTimer: NSTimer!
     var correctAnswers = 0
     
+    func fixNavigationBar() {
+        self.navigationController?.navigationBar.translucent = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,20 +40,23 @@ class GameQuizViewController: UIViewController {
             object: nil)
         
         buttons = [btnAlternative1, btnAlternative2, btnAlternative3, btnAlternative4]
-        GameService.getGame(1)
     }
     
-    @objc func handleResult(notification: NSNotification) {
-        if let
-            userInfo    = notification.userInfo as? [String: Game],
-            game        = userInfo[GameService.GAME_KEY] 
-        {
-            self.game = game
-            dispatch_async(dispatch_get_main_queue(), {
-                self.title = game.name
-                self.goToQuestion(0)
-            })
-        }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        startGame()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func startGame() {
+        self.title = game.name
+        self.correctAnswers = 0
+        self.goToQuestion(0)
     }
     
     func goToQuestion(questionIndex: Int) {
@@ -105,15 +112,6 @@ class GameQuizViewController: UIViewController {
         if self.countDownTimeLeft == 0 {
             timer.invalidate()
         }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func chooseAlternative(sender: UIButton) {
