@@ -33,6 +33,13 @@ public class ScoreResource {
         return scoreService.getHighScores(game);
     }
 
+    @GET
+    @Path("/{game}/{player}")
+    @Timed
+    public List<Score> getHighScores(@PathParam("game") long game, @PathParam("player") String player) {
+        return scoreService.getScore(game, player);
+    }
+
     @POST
     @Timed
     @Produces(MediaType.APPLICATION_JSON)
