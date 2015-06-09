@@ -18,6 +18,7 @@
 		84FB848E1AF7C30300F32992 /* MesanQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB848D1AF7C30300F32992 /* MesanQuizTests.swift */; };
 		9F2B01BE1B2743F2000EA55B /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B01BD1B2743F2000EA55B /* GamesViewController.swift */; };
 		9F2B01C01B2746AD000EA55B /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B01BF1B2746AD000EA55B /* GameCell.swift */; };
+		9F2B01C21B275089000EA55B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B01C11B275089000EA55B /* ImageService.swift */; };
 		9FE7B8491B026427008389FF /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7B8481B026427008389FF /* Service.swift */; };
 		9FE7B84B1B027B0E008389FF /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7B84A1B027B0E008389FF /* Question.swift */; };
 		9FE7B84D1B027C0C008389FF /* Alternative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7B84C1B027C0C008389FF /* Alternative.swift */; };
@@ -49,6 +50,7 @@
 		84FB848D1AF7C30300F32992 /* MesanQuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesanQuizTests.swift; sourceTree = "<group>"; };
 		9F2B01BD1B2743F2000EA55B /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		9F2B01BF1B2746AD000EA55B /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
+		9F2B01C11B275089000EA55B /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		9FE7B8481B026427008389FF /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		9FE7B84A1B027B0E008389FF /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		9FE7B84C1B027C0C008389FF /* Alternative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alternative.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				84140D9B1B0257CF00F2D904 /* GameService.swift */,
 				9FE7B8481B026427008389FF /* Service.swift */,
+				9F2B01C11B275089000EA55B /* ImageService.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				9F2B01C01B2746AD000EA55B /* GameCell.swift in Sources */,
 				84140D961B02576F00F2D904 /* Game.swift in Sources */,
 				84FB84781AF7C30300F32992 /* AppDelegate.swift in Sources */,
+				9F2B01C21B275089000EA55B /* ImageService.swift in Sources */,
 				9FE7B84B1B027B0E008389FF /* Question.swift in Sources */,
 				9FE7B8491B026427008389FF /* Service.swift in Sources */,
 			);

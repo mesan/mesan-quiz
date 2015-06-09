@@ -9,11 +9,44 @@ class GameCell: UITableViewCell {
     @IBOutlet weak var subject: UILabel!
     @IBOutlet weak var numberOfPlayers: UILabel!
     
+    var game: Game?
+    var imageService: ImageService
+
+    required init(coder aDecoder: NSCoder) {
+        imageService = ImageService()
+        super.init(coder:aDecoder)
+    }
+    
     func setGame(game: Game) {
-        title.text = game.name
-        // TODO
-        // authorImage =
+        self.game = game
+        
+        imageService.getImage(game.creator.profileImageUrl)
+        title.text = game.name.uppercaseString
         authorName.text = game.creator.fullName
         subject.text = game.topic
+
+        initObservers()
+    }
+    
+    func initObservers() {
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "handleResult:",
+            name: ImageService.GET_IMAGE_SUCCESS,
+            object: nil)
+    }
+    
+    func handleResult(notification: NSNotification) {
+        if let
+            userInfo    = notification.userInfo as? [String: AnyObject],
+            image       = userInfo[ImageService.IMAGE_KEY] as? UIImage,
+            shortName   = userInfo[ImageService.SHORTNAME_KEY] as? String
+        {
+            dispatch_async(dispatch_get_main_queue(), {
+                if self.game?.creator.shortName == shortName {
+                    self.authorImage.image = image
+                }                
+            })
+        }
     }
 }
