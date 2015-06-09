@@ -11,9 +11,13 @@ import java.util.List;
 
 public interface ScoreDao {
 
-    @SqlQuery("SELECT s.*,g.name, g.creator, g.topic, g.time_limit,p.full_name AS player_full_name,c.full_name AS creator_full_name FROM score s, game g, person p, person c WHERE s.player = p.short_name AND s.game = g.id AND s.game = :game AND g.creator = c.short_name ORDER BY correct_answers DESC, time_used ASC LIMIT 10")
+    @SqlQuery("SELECT s.*,g.name, g.creator, g.topic, g.time_limit,p.full_name AS player_full_name,c.full_name AS creator_full_name FROM score s, game g, person p, person c WHERE s.player = p.short_name AND s.game = g.id AND g.creator = c.short_name AND s.game = :game GROUP BY s.player ORDER BY correct_answers DESC, time_used ASC, played DESC")
     @RegisterMapper(ScoreMapper.class)
     List<Score> getHighScores(@Bind("game") long game);
+
+    @SqlQuery("SELECT s.*,g.name, g.creator, g.topic, g.time_limit,p.full_name AS player_full_name,c.full_name AS creator_full_name FROM score s, game g, person p, person c WHERE s.player = p.short_name AND s.game = g.id AND g.creator = c.short_name AND s.game = :game AND s.player = :player ORDER BY played")
+    @RegisterMapper(ScoreMapper.class)
+    List<Score> getScore(@Bind("game") long game, @Bind("player") String player);
 
     @SqlUpdate("INSERT INTO score (game, player, correct_answers, question_count, time_used) values (:game, :player, :correct_answers, :question_count, :time_used)")
     void insert(@Bind("game") long id, @Bind("player") String short_name,

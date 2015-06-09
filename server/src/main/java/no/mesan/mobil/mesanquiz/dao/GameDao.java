@@ -10,6 +10,7 @@ import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
+import org.skife.jdbi.v2.sqlobject.GetGeneratedKeys;
 
 import java.util.List;
 
@@ -35,6 +36,22 @@ public interface GameDao {
     @RegisterMapper(AlternativeMapper.class)
     List<Alternative> getAlternativesForQuestion(@Bind("questionId") long questionId);
 
-    @SqlUpdate("INSERT INTO game (name) values (:name)")
-    public void insert(@Bind("name") String name);
+    @SqlUpdate("INSERT INTO game (name, creator, topic, time_limit) values (:name, :creator, :topic, :time_limit)")
+    @GetGeneratedKeys
+    int insert(
+            @Bind("name") String name,
+            @Bind("creator") String creator,
+            @Bind("topic") String topic,
+            @Bind("time_limit") Integer timeLimit
+    );
+
+    @SqlUpdate("UPDATE game set name = :name, creator = :creator, topic = :topic, time_limit = :time_limit WHERE id = :id")
+    int update(
+            @Bind("id") long id,
+            @Bind("name") String name,
+            @Bind("creator") String creator,
+            @Bind("topic") String topic,
+            @Bind("time_limit") Integer timeLimit
+    );
+
 }

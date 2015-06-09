@@ -8,6 +8,9 @@ public class Question {
     private String question;
     private List<Alternative> alternatives;
 
+    public Question() {
+    }
+
     public Question(long id, long gameId, String question) {
         this.id = id;
         this.gameId = gameId;

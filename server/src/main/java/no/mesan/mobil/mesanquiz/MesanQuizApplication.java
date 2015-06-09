@@ -5,14 +5,18 @@ import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import no.mesan.mobil.mesanquiz.config.MesanQuizConfiguration;
+import no.mesan.mobil.mesanquiz.dao.AlternativeDao;
 import no.mesan.mobil.mesanquiz.dao.GameDao;
 import no.mesan.mobil.mesanquiz.dao.PersonDao;
+import no.mesan.mobil.mesanquiz.dao.QuestionDao;
 import no.mesan.mobil.mesanquiz.dao.ScoreDao;
 import no.mesan.mobil.mesanquiz.resource.GameResource;
 import no.mesan.mobil.mesanquiz.resource.PersonResource;
+import no.mesan.mobil.mesanquiz.service.AlternativeService;
 import no.mesan.mobil.mesanquiz.resource.ScoreResource;
 import no.mesan.mobil.mesanquiz.service.GameService;
 import no.mesan.mobil.mesanquiz.service.PersonService;
+import no.mesan.mobil.mesanquiz.service.QuestionService;
 import no.mesan.mobil.mesanquiz.service.ScoreService;
 import org.skife.jdbi.v2.DBI;
 
@@ -42,15 +46,20 @@ public class MesanQuizApplication extends Application<MesanQuizConfiguration> {
 
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "postgresql");
-
         final GameDao gameDao = jdbi.onDemand(GameDao.class);
-        final GameService gameService = new GameService(gameDao);
+        final PersonDao personDao = jdbi.onDemand(PersonDao.class);
+        final QuestionDao questionDao = jdbi.onDemand(QuestionDao.class);
+        final AlternativeDao alternativeDao = jdbi.onDemand(AlternativeDao.class);
+
+        final AlternativeService alternativeService = new AlternativeService(alternativeDao);
+        final QuestionService questionService = new QuestionService(questionDao, alternativeService);
+        final GameService gameService = new GameService(gameDao, questionService);
+        final PersonService personService = new PersonService(personDao);
+
         final GameResource gameResource = new GameResource(gameService);
         environment.jersey().register(gameService);
         environment.jersey().register(gameResource);
 
-        final PersonDao personDao = jdbi.onDemand(PersonDao.class);
-        final PersonService personService = new PersonService(personDao);
         final PersonResource personResource = new PersonResource(personService);
         environment.jersey().register(personService);
         environment.jersey().register(personResource);

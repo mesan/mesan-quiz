@@ -13,8 +13,12 @@ public class ScoreService {
         this.scoreDao = scoreDao;
     }
 
-    public List<Score> getHighScores(long game_id) {
-        return scoreDao.getHighScores(game_id);
+    public List<Score> getHighScores(long game) {
+        return scoreDao.getHighScores(game);
+    }
+
+    public List<Score> getScore(long game, String player) {
+        return scoreDao.getScore(game, player);
     }
 
     public void saveScore(Score score) {
