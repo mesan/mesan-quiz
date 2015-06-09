@@ -5,19 +5,22 @@ import android.util.Log;
 
 import no.mesan.mesanquiz.common.BusProvider;
 import no.mesan.mesanquiz.event.GameFromDatabaseEvent;
+import no.mesan.mesanquiz.event.PersonFromDatabaseEvent;
 import no.mesan.mesanquiz.model.GameDto;
+import no.mesan.mesanquiz.model.PersonDto;
 import no.mesan.mesanquiz.service.databaseservice.GameDataBaseService;
+import no.mesan.mesanquiz.service.databaseservice.PersonDataBaseService;
 
-public class GetGameFromDatabaseJob extends AbstractJob {
+public class GetPersonFromDatabaseJob extends AbstractJob {
 
-    public GetGameFromDatabaseJob(Context context) {
+    public GetPersonFromDatabaseJob(Context context) {
         super(context, HIGH_PRIORITY);
     }
 
     @Override
     protected void work() throws Throwable {
-        GameDto gameDto = new GameDataBaseService(context).getGames();
-        BusProvider.getInstance().post(new GameFromDatabaseEvent(gameDto));
+        PersonDto personDto = new PersonDataBaseService(context).getPeople();
+        BusProvider.getInstance().post(new PersonFromDatabaseEvent(personDto));
     }
 
     @Override

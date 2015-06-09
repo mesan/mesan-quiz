@@ -5,23 +5,23 @@ import android.util.Log;
 
 import no.mesan.mesanquiz.common.BusProvider;
 import no.mesan.mesanquiz.event.EventsStoredSimpleFeedback;
-import no.mesan.mesanquiz.event.ProgramEvent;
-import no.mesan.mesanquiz.model.ProgramDto;
+import no.mesan.mesanquiz.event.PersonEvent;
+import no.mesan.mesanquiz.model.PersonDto;
 import no.mesan.mesanquiz.service.restservice.BaseRestService;
-import no.mesan.mesanquiz.service.databaseservice.ProgramDataBaseService;
+import no.mesan.mesanquiz.service.databaseservice.PersonDataBaseService;
 
-public class ProgramJob extends AbstractJob {
+public class PersonJob extends AbstractJob {
 
-    public ProgramJob(Context context) {
+    public PersonJob(Context context) {
         super(context, HIGH_PRIORITY);
     }
 
     @Override
     protected void work() throws Throwable {
-        ProgramDto program = BaseRestService.getProgramService().getProgram();
-        new ProgramDataBaseService(context).saveProgram(program);
+        PersonDto person = BaseRestService.getPeopleService().getPerson(1);
+        new PersonDataBaseService(context).savePeople(person);
         BusProvider.getInstance().post(new EventsStoredSimpleFeedback("Events stored!"));
-        BusProvider.getInstance().post(new ProgramEvent(program));
+        BusProvider.getInstance().post(new PersonEvent(person));
     }
 
     @Override

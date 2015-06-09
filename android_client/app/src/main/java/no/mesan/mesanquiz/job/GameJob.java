@@ -6,11 +6,8 @@ import android.util.Log;
 import no.mesan.mesanquiz.common.BusProvider;
 import no.mesan.mesanquiz.event.EventsStoredSimpleFeedback;
 import no.mesan.mesanquiz.event.GameEvent;
-import no.mesan.mesanquiz.event.ProgramEvent;
 import no.mesan.mesanquiz.model.GameDto;
-import no.mesan.mesanquiz.model.ProgramDto;
 import no.mesan.mesanquiz.service.databaseservice.GameDataBaseService;
-import no.mesan.mesanquiz.service.databaseservice.ProgramDataBaseService;
 import no.mesan.mesanquiz.service.restservice.BaseRestService;
 
 public class GameJob extends AbstractJob {
