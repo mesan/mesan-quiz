@@ -98,7 +98,7 @@ class GameQuizViewController: UIViewController {
             
             // Hides the rest of the buttons if there are less than 4 alternatives
             for index in i...(self.buttons.count - 1) {
-                self.buttons[i].hidden = true
+                self.buttons[index].hidden = true
             }
         }
         
@@ -132,6 +132,10 @@ class GameQuizViewController: UIViewController {
     }
 
     @IBAction func chooseAlternative(sender: UIButton) {
+        if self.game.questions!.isEmpty {
+            return
+        }
+        
         if let question = self.game.questions?[self.currentQuestionIndex] {
             if let alternative = question.alternatives?.filter({ $0.alternative! == sender.titleLabel?.text }).first {
                 println(alternative.alternative)
