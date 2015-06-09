@@ -1,5 +1,7 @@
 package no.mesan.mobil.mesanquiz.domain;
 
+import java.util.Date;
+
 public class Score {
     private long id;
     private Game game;
@@ -7,14 +9,16 @@ public class Score {
     private int correctAnswers;
     private int questionCount;
     private int timeUsed;
+    private Date played;
 
-    public Score(long id, Game game, Person player, int correctAnswers, int questionCount, int timeUsed) {
+    public Score(long id, Game game, Person player, int correctAnswers, int questionCount, int timeUsed, Date played) {
         this.id = id;
         this.game = game;
         this.player = player;
         this.correctAnswers = correctAnswers;
         this.questionCount = questionCount;
         this.timeUsed = timeUsed;
+        this.played = played;
     }
 
     public Score() {
@@ -67,5 +71,13 @@ public class Score {
 
     public void setTimeUsed(int timeUsed) {
         this.timeUsed = timeUsed;
+    }
+
+    public Date getPlayed() {
+        return played;
+    }
+
+    public void setPlayed(Date played) {
+        this.played = played;
     }
 }

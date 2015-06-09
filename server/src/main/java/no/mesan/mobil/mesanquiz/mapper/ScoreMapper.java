@@ -8,15 +8,17 @@ import org.skife.jdbi.v2.tweak.ResultSetMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public class ScoreMapper implements ResultSetMapper<Score> {
 
     public Score map(int i, ResultSet resultSet, StatementContext statementContext) throws SQLException {
+        Timestamp played = resultSet.getTimestamp("played");
         Person creator = new Person(resultSet.getString("creator_full_name"), resultSet.getString("creator"));
         Person player = new Person(resultSet.getString("player_full_name"), resultSet.getString("player"));
         Game game = new Game(resultSet.getLong("game"), resultSet.getString("name"), creator,
                 resultSet.getString("topic"), resultSet.getInt("time_limit"));
         return new Score(resultSet.getLong("id"), game, player, resultSet.getInt("correct_answers"),
-                resultSet.getInt("question_count"), resultSet.getInt("time_used"));
+                resultSet.getInt("question_count"), resultSet.getInt("time_used"), played);
     }
 }
