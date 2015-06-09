@@ -1,5 +1,5 @@
 //
-//  SpillQuizViewController.swift
+//  GameQuizViewController.swift
 //  MesanQuiz
 //
 //  Created by Tore Brandtzæg on 04.05.15.
@@ -8,8 +8,7 @@
 
 import UIKit
 
-// TODO: Rename in English
-class SpillQuizViewController: UIViewController {
+class GameQuizViewController: UIViewController {
     
     @IBOutlet weak var questionNumber: UILabel!
     @IBOutlet weak var questionText: UITextView!
