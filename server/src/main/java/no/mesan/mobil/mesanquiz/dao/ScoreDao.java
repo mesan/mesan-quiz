@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface ScoreDao {
 
-    @SqlQuery("SELECT s.*,g.name, g.creator, g.topic, g.time_limit,p.full_name AS player_full_name,c.full_name AS creator_full_name FROM score s, game g, person p, person c WHERE s.player = p.short_name AND s.game = g.id AND g.creator = c.short_name AND s.game = :game GROUP BY s.player ORDER BY correct_answers DESC, time_used ASC, played DESC")
+    @SqlQuery("SELECT s.*,g.name, g.creator, g.topic, g.time_limit,p.full_name AS player_full_name,c.full_name AS creator_full_name FROM score s, game g, person p, person c WHERE s.player = p.short_name AND s.game = g.id AND g.creator = c.short_name AND s.game = :game ORDER BY correct_answers DESC, time_used ASC, played DESC")
     @RegisterMapper(ScoreMapper.class)
     List<Score> getHighScores(@Bind("game") long game);
 
