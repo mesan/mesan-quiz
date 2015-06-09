@@ -5,13 +5,16 @@ package no.mesan.mobil.mesanquiz.domain;
  */
 public class Alternative {
     private long id;
-    private long alternativeId;
+    private long questionId;
     private String alternative;
     private boolean isAnswer;
 
-    public Alternative(long id, long alternativeId, String alternative, boolean isAnswer) {
+    public Alternative() {
+    }
+
+    public Alternative(long id, long questionId, String alternative, boolean isAnswer) {
         this.id = id;
-        this.alternativeId = alternativeId;
+        this.questionId = questionId;
         this.alternative = alternative;
         this.isAnswer = isAnswer;
     }
@@ -24,12 +27,12 @@ public class Alternative {
         this.id = id;
     }
 
-    public long getAlternativeId() {
-        return alternativeId;
+    public long getQuestionId() {
+        return questionId;
     }
 
-    public void setAlternativeId(long alternativeId) {
-        this.alternativeId = alternativeId;
+    public void setQuestionId(long questionId) {
+        this.questionId = questionId;
     }
 
     public String getAlternative() {

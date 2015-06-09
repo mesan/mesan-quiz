@@ -1,6 +1,7 @@
 package no.mesan.mobil.mesanquiz.service;
 
 import no.mesan.mobil.mesanquiz.dao.GameDao;
+import no.mesan.mobil.mesanquiz.dao.QuestionDao;
 import no.mesan.mobil.mesanquiz.domain.Alternative;
 import no.mesan.mobil.mesanquiz.domain.Game;
 import no.mesan.mobil.mesanquiz.domain.Question;
@@ -9,10 +10,12 @@ import java.util.List;
 
 public class GameService {
 
-    private GameDao gameDao;
+    private final GameDao gameDao;
+    private final QuestionService questionService;
 
-    public GameService(GameDao gameDao) {
+    public GameService(GameDao gameDao, QuestionService questionService) {
         this.gameDao = gameDao;
+        this.questionService = questionService;
     }
 
     public List<Game> getGames() {
@@ -53,7 +56,23 @@ public class GameService {
     }
 
     public void saveGame(Game game) {
-        gameDao.insert(game.getName());
+        if (game.getId() == 0) {
+            int gameId = gameDao.insert(
+                    game.getName(),
+                    game.getCreator().getShortName(),
+                    game.getTopic(),
+                    game.getTimeLimit());
+
+            questionService.insert(gameId, game.getQuestions());
+        } else {
+            gameDao.update(
+                    game.getId(),
+                    game.getName(),
+                    game.getCreator().getShortName(),
+                    game.getTopic(),
+                    game.getTimeLimit());
+            questionService.update(game.getQuestions());
+        }
     }
 
 

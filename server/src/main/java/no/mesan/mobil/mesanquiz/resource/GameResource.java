@@ -38,12 +38,11 @@ public class GameResource {
         return gameService.getGamesForTopic(topic);
     }
 
-    @POST
+    @PUT
     @Timed
     @Produces(MediaType.APPLICATION_JSON)
     public Response saveGame(Game game) {
         gameService.saveGame(game);
-
-        return Response.status(201).entity("{message: 'ok'}").build();
+        return Response.status(Response.Status.CREATED).entity("{message: 'ok'}").build();
     }
 }
