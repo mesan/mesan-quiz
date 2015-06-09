@@ -20,6 +20,8 @@ class SpillQuizViewController: UIViewController {
     @IBOutlet weak var btnAlternative3: UIButton!
     @IBOutlet weak var btnAlternative4: UIButton!
     
+    var gameService: GameService!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +31,8 @@ class SpillQuizViewController: UIViewController {
             name: GameService.GET_GAME_SUCCESS,
             object: nil)
         
-        GameService.getGame(1)
+        gameService = GameService()
+        gameService.getGame(1)
     }
     
     @objc func handleResult(notification: NSNotification) {
