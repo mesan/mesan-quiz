@@ -56,17 +56,21 @@ class GameQuizViewController: UIViewController {
     func startGame() {
         self.title = game.name
         self.correctAnswers = 0
-        self.goToQuestion(0)
+        self.goToQuestion(0, delay: 0)
     }
     
-    func goToQuestion(questionIndex: Int) {
+    func goToQuestion(questionIndex: Int, delay: NSTimeInterval) {
         if questionIndex >= self.game.questions!.count {
             println("Game complete! \(self.correctAnswers) correct answers")
             return // TODO: Game complete
         }
         
         self.currentQuestionIndex = questionIndex
-        self.initView(self.game.questions?[self.currentQuestionIndex])
+        
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            self.initView(self.game.questions?[self.currentQuestionIndex])
+        }
     }
     
     func initView(question: Question!) {
@@ -74,6 +78,9 @@ class GameQuizViewController: UIViewController {
             return
         }
         
+        self.labelTimeLeft.textColor = UIColor.blackColor()
+        self.labelTimeLeft.text = nil
+
         self.questionNumber.text = "\(self.currentQuestionIndex + 1) / \(game.questions!.count)"
         self.questionText.text = question.question
         
@@ -108,9 +115,17 @@ class GameQuizViewController: UIViewController {
     func countDown(timer: NSTimer) {
         self.countDownTimeLeft -= 1
         self.labelTimeLeft.text = "\(self.countDownTimeLeft) sekunder igjen!"
+        self.labelTimeLeft.textColor = UIColor.blackColor()
         
         if self.countDownTimeLeft == 0 {
-            timer.invalidate()
+            setTimer(nil)
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.disableButtons()
+                self.labelTimeLeft.text = "Tiden er ute!"
+                self.labelTimeLeft.textColor = UIColor.redColor()
+                self.goToQuestion(self.currentQuestionIndex + 1, delay: 3)
+            })
         }
     }
 
@@ -129,15 +144,15 @@ class GameQuizViewController: UIViewController {
                 sender.backgroundColor = alternative.answer! ? UIColor.greenColor() : UIColor.redColor()
                 self.setTimer(nil)
                 
-                for button in self.buttons {
-                    button.enabled = false
-                }
-                
-                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC)))
-                dispatch_after(delayTime, dispatch_get_main_queue()) {
-                    self.goToQuestion(self.currentQuestionIndex + 1)
-                }
+                self.disableButtons()
+                self.goToQuestion(self.currentQuestionIndex + 1, delay: 3)
             }
+        }
+    }
+    
+    func disableButtons() {
+        for button in self.buttons {
+            button.enabled = false
         }
     }
 }
