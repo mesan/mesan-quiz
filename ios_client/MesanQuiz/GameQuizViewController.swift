@@ -26,6 +26,8 @@ class GameQuizViewController: UIViewController {
     var countDownTimer: NSTimer!
     var correctAnswers = 0
     
+    let nextQuestionDelay = 1.0
+    
     func fixNavigationBar() {
         self.navigationController?.navigationBar.translucent = false
     }
@@ -124,7 +126,7 @@ class GameQuizViewController: UIViewController {
                 self.disableButtons()
                 self.labelTimeLeft.text = "Tiden er ute!"
                 self.labelTimeLeft.textColor = UIColor.redColor()
-                self.goToQuestion(self.currentQuestionIndex + 1, delay: 3)
+                self.goToQuestion(self.currentQuestionIndex + 1, delay: self.nextQuestionDelay)
             })
         }
     }
@@ -145,7 +147,7 @@ class GameQuizViewController: UIViewController {
                 self.setTimer(nil)
                 
                 self.disableButtons()
-                self.goToQuestion(self.currentQuestionIndex + 1, delay: 3)
+                self.goToQuestion(self.currentQuestionIndex + 1, delay: self.nextQuestionDelay)
             }
         }
     }
