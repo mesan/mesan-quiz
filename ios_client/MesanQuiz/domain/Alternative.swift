@@ -10,17 +10,17 @@ import Foundation
 
 class Alternative : Printable {
     var id: Int?
-    var alternativeId: Int?
+    var questionId: Int?
     var alternative: String?
     var answer: Bool?
     
     var description: String {
-        return "{ id: \(id!), alternativeId: \(alternativeId!), alternative: \(alternative!), answer: \(answer!) }"
+        return "{ id: \(id!), questionId: \(questionId!), alternative: \(alternative!), answer: \(answer!) }"
     }
     
-    init(id: Int, alternativeId: Int, alternative: String, answer: Bool) {
+    init(id: Int, questionId: Int, alternative: String, answer: Bool) {
         self.id = id
-        self.alternativeId = alternativeId
+        self.questionId = questionId
         self.alternative = alternative
         self.answer = answer
     }
@@ -43,11 +43,11 @@ class Alternative : Printable {
     class func fromJson(jsonAlternative: NSDictionary) -> Alternative? {
         if let
             id = jsonAlternative["id"] as? Int,
-            alternativeId = jsonAlternative["alternativeId"] as? Int,
+            questionId = jsonAlternative["questionId"] as? Int,
             alternative = jsonAlternative["alternative"] as? String,
             answer = jsonAlternative["answer"] as? Bool
         {
-            return Alternative(id: id, alternativeId: alternativeId, alternative: alternative, answer: answer)
+            return Alternative(id: id, questionId: questionId, alternative: alternative, answer: answer)
         }
         
         return nil
