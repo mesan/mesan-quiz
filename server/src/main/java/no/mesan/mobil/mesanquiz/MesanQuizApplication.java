@@ -56,19 +56,19 @@ public class MesanQuizApplication extends Application<MesanQuizConfiguration> {
         final GameService gameService = new GameService(gameDao, questionService);
         final PersonService personService = new PersonService(personDao);
 
-        final GameResource gameResource = new GameResource(gameService);
+        final ScoreDao scoreDao = jdbi.onDemand(ScoreDao.class);
+        final ScoreService scoreService = new ScoreService(scoreDao);
+        final ScoreResource scoreResource = new ScoreResource(scoreService);
+        environment.jersey().register(scoreService);
+        environment.jersey().register(scoreResource);
+
+        final GameResource gameResource = new GameResource(gameService, scoreService);
         environment.jersey().register(gameService);
         environment.jersey().register(gameResource);
 
         final PersonResource personResource = new PersonResource(personService);
         environment.jersey().register(personService);
         environment.jersey().register(personResource);
-
-        final ScoreDao scoreDao = jdbi.onDemand(ScoreDao.class);
-        final ScoreService scoreService = new ScoreService(scoreDao);
-        final ScoreResource scoreResource = new ScoreResource(scoreService);
-        environment.jersey().register(scoreService);
-        environment.jersey().register(scoreResource);
 
         final TemplateHealthCheck healthCheck =
                 new TemplateHealthCheck(configuration.getTemplate());
