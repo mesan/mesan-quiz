@@ -120,6 +120,105 @@
             </objects>
             <point key="canvasLocation" x="689" y="820"/>
         </scene>
+        <!--Quiz Result View Controller-->
+        <scene sceneID="1LL-E9-m6c">
+            <objects>
+                <viewController storyboardIdentifier="QuizResultViewController" id="waP-3p-2jx" customClass="QuizResultViewController" customModule="MesanQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mIt-wD-beP"/>
+                        <viewControllerLayoutGuide type="bottom" id="xiH-3S-VoK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="apz-YO-SXi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 / 10 riktige!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnV-E6-RA4">
+                                <rect key="frame" x="16" y="20" width="170" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ganske bra 😊" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvG-et-Sdy">
+                                <rect key="frame" x="16" y="59" width="116" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="35" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rkH-SV-hK5">
+                                <rect key="frame" x="16" y="105" width="568" height="426"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizResultCell" rowHeight="35" id="Xbk-Al-OJ1" customClass="QuizResultCell" customModule="MesanQuiz" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xbk-Al-OJ1" id="V1B-3E-zLx">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbf-1V-4cz">
+                                                    <rect key="frame" x="8" y="8" width="14" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anders Ullnæss" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgm-tu-EIo">
+                                                    <rect key="frame" x="30" y="8" width="121" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jg-Je-iaL">
+                                                    <rect key="frame" x="518" y="8" width="44" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bgm-tu-EIo" firstAttribute="top" secondItem="Bbf-1V-4cz" secondAttribute="top" id="19C-58-nMu"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4jg-Je-iaL" secondAttribute="trailing" constant="-2" id="35s-vc-3RO"/>
+                                                <constraint firstItem="bgm-tu-EIo" firstAttribute="top" secondItem="4jg-Je-iaL" secondAttribute="top" id="Crh-xd-d9T"/>
+                                                <constraint firstItem="Bbf-1V-4cz" firstAttribute="leading" secondItem="V1B-3E-zLx" secondAttribute="leadingMargin" id="GqH-9T-W7s"/>
+                                                <constraint firstAttribute="centerY" secondItem="Bbf-1V-4cz" secondAttribute="centerY" constant="-1.5" id="Lm3-rt-sWK"/>
+                                                <constraint firstItem="bgm-tu-EIo" firstAttribute="leading" secondItem="Bbf-1V-4cz" secondAttribute="trailing" constant="8" id="UIi-vS-Xi5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="waP-3p-2jx" id="uxa-fx-Rqz"/>
+                                    <outlet property="delegate" destination="waP-3p-2jx" id="mjM-MT-cvv"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyR-CQ-nM1">
+                                <rect key="frame" x="239" y="539" width="123" height="30"/>
+                                <state key="normal" title="Tilbake til quizene">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tvG-et-Sdy" firstAttribute="top" secondItem="QnV-E6-RA4" secondAttribute="bottom" constant="3" id="4KG-ac-QUD"/>
+                            <constraint firstItem="QnV-E6-RA4" firstAttribute="leading" secondItem="tvG-et-Sdy" secondAttribute="leading" id="58L-km-q93"/>
+                            <constraint firstItem="rkH-SV-hK5" firstAttribute="top" secondItem="tvG-et-Sdy" secondAttribute="bottom" constant="25" id="6Ec-IX-nYe"/>
+                            <constraint firstItem="QnV-E6-RA4" firstAttribute="leading" secondItem="apz-YO-SXi" secondAttribute="leadingMargin" id="8VV-2n-K5e"/>
+                            <constraint firstItem="QnV-E6-RA4" firstAttribute="top" secondItem="mIt-wD-beP" secondAttribute="bottom" id="Hmh-lK-05Y"/>
+                            <constraint firstItem="qyR-CQ-nM1" firstAttribute="top" secondItem="rkH-SV-hK5" secondAttribute="bottom" constant="8" id="SmD-aK-ppg"/>
+                            <constraint firstItem="rkH-SV-hK5" firstAttribute="leading" secondItem="apz-YO-SXi" secondAttribute="leadingMargin" id="bx0-xQ-Ivj"/>
+                            <constraint firstAttribute="centerX" secondItem="qyR-CQ-nM1" secondAttribute="centerX" id="cbq-mg-qlf"/>
+                            <constraint firstItem="rkH-SV-hK5" firstAttribute="trailing" secondItem="apz-YO-SXi" secondAttribute="trailingMargin" id="iea-Hg-ODS"/>
+                            <constraint firstItem="xiH-3S-VoK" firstAttribute="top" secondItem="rkH-SV-hK5" secondAttribute="bottom" constant="69" id="jna-jP-rNL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="feedbackLabel" destination="tvG-et-Sdy" id="RdE-Qv-0qV"/>
+                        <outlet property="scoreLabel" destination="QnV-E6-RA4" id="vCX-pc-fNg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gfk-hW-usS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14" y="1518"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="F5U-rX-pwW">
             <objects>

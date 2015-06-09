@@ -62,7 +62,13 @@ class GameQuizViewController: UIViewController {
     func goToQuestion(questionIndex: Int) {
         if questionIndex >= self.game.questions!.count {
             println("Game complete! \(self.correctAnswers) correct answers")
-            return // TODO: Game complete
+            
+            let quizResultViewController = self.storyboard!.instantiateViewControllerWithIdentifier("QuizResultViewController") as! QuizResultViewController
+            // TODO: Player name
+            quizResultViewController.addNewResult(QuizResult(fullName: "Anders Ullnæss", score: correctAnswers, numberOfQuestions: game.questions!.count))
+            self.navigationController?.showDetailViewController(quizResultViewController, sender: self)
+            
+            return
         }
         
         self.currentQuestionIndex = questionIndex
