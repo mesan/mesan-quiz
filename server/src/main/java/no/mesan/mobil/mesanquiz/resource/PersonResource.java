@@ -14,8 +14,8 @@ public class PersonResource {
 
     private PersonService personService;
 
-    public PersonResource(PersonService gameService) {
-        this.personService = gameService;
+    public PersonResource(PersonService personService) {
+        this.personService = personService;
     }
     @GET
     @Timed
