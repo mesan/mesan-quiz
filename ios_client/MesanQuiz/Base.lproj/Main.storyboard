@@ -30,6 +30,9 @@
                                 <state key="normal" title="Alternativ 1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="chooseAlternative:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Lq4-Lv-v9J"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5x-15-h87">
                                 <rect key="frame" x="16" y="427" width="568" height="36"/>
@@ -37,6 +40,9 @@
                                 <state key="normal" title="Alternativ 2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="chooseAlternative:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eZY-4P-1bI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PA-g8-7VU">
                                 <rect key="frame" x="16" y="471" width="568" height="36"/>
@@ -44,6 +50,9 @@
                                 <state key="normal" title="Alternativ 3">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="chooseAlternative:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QUa-EL-uof"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLf-Bw-WiN">
                                 <rect key="frame" x="16" y="515" width="568" height="36"/>
@@ -51,6 +60,9 @@
                                 <state key="normal" title="Alternativ 4">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="chooseAlternative:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1Ce-7j-yc4"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="Spørsmåltekst" translatesAutoresizingMaskIntoConstraints="NO" id="yLc-cC-wdW">
                                 <rect key="frame" x="16" y="118" width="568" height="257"/>
