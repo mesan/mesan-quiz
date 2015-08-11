@@ -62,21 +62,21 @@ class GameQuizViewController: UIViewController {
     }
     
     func goToQuestion(questionIndex: Int, delay: NSTimeInterval) {
-        if questionIndex >= self.game.questions!.count {
-            println("Game complete! \(self.correctAnswers) correct answers")
-            
-            let quizResultViewController = self.storyboard!.instantiateViewControllerWithIdentifier("QuizResultViewController") as! QuizResultViewController
-            // TODO: Player name
-            quizResultViewController.addNewResult(QuizResult(fullName: "Anders Ullnæss", score: correctAnswers, numberOfQuestions: game.questions!.count))
-            self.navigationController?.showDetailViewController(quizResultViewController, sender: self)
-            
-            return
-        }
-        
-        self.currentQuestionIndex = questionIndex
-        
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
+            if questionIndex >= self.game.questions!.count {
+                println("Game complete! \(self.correctAnswers) correct answers")
+                
+                let quizResultViewController = self.storyboard!.instantiateViewControllerWithIdentifier("QuizResultViewController") as! QuizResultViewController
+                // TODO: Player name
+                quizResultViewController.addNewResult(QuizResult(fullName: "Anders Ullnæss", score: self.correctAnswers, numberOfQuestions: self.game.questions!.count))
+                self.navigationController?.showDetailViewController(quizResultViewController, sender: self)
+                
+                return
+            }
+            
+            self.currentQuestionIndex = questionIndex
+            
             self.initView(self.game.questions?[self.currentQuestionIndex])
         }
     }
