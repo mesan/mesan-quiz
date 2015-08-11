@@ -89,8 +89,7 @@ class GameQuizViewController: UIViewController {
         }
         
         self.countDownTimeLeft = game.timeLimit
-        self.labelTimeLeft.textColor = UIColor.blackColor()
-        self.labelTimeLeft.text = "\(self.countDownTimeLeft) sekunder igjen!"
+        self.updateTimeLeftLabel("\(self.countDownTimeLeft) sekunder igjen!", timeOut: false)
 
         self.questionNumber.text = "\(self.currentQuestionIndex + 1) / \(game.questions!.count)"
         self.questionText.text = question.question
@@ -124,19 +123,22 @@ class GameQuizViewController: UIViewController {
     
     func countDown(timer: NSTimer) {
         self.countDownTimeLeft -= 1
-        self.labelTimeLeft.text = "\(self.countDownTimeLeft) sekunder igjen!"
-        self.labelTimeLeft.textColor = UIColor.blackColor()
+        self .updateTimeLeftLabel("\(self.countDownTimeLeft) sekunder igjen!", timeOut: false)
         
         if self.countDownTimeLeft == 0 {
             setTimer(nil)
             
             dispatch_async(dispatch_get_main_queue(), {
                 self.disableButtons()
-                self.labelTimeLeft.text = "Tiden er ute!"
-                self.labelTimeLeft.textColor = UIColor.redColor()
+                self.updateTimeLeftLabel("Tiden er ute!", timeOut: true)
                 self.goToQuestion(self.currentQuestionIndex + 1, delay: self.nextQuestionDelay)
             })
         }
+    }
+    
+    func updateTimeLeftLabel(text: String, timeOut: Bool) {
+        self.labelTimeLeft.text = text
+        self.labelTimeLeft.textColor = timeOut ? UIColor.redColor() : UIColor.blackColor()
     }
 
     @IBAction func chooseAlternative(sender: UIButton) {
