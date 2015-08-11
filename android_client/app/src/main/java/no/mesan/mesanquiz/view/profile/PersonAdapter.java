@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
+/*import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -19,12 +19,31 @@ import java.util.List;
 
 import no.mesan.thomasp.faghelg.android.R;
 import no.mesan.thomasp.faghelg.android.model.domain.Person;
-import no.mesan.thomasp.faghelg.android.ui.custom.RoundedImageView;
+import no.mesan.thomasp.faghelg.android.ui.custom.RoundedImageView;*/
 
-@EBean
+//@EBean
 public class PersonAdapter extends BaseAdapter {
+	@Override
+	public int getCount() {
+		return 0;
+	}
 
-	private List<Person> persons = new ArrayList<>();
+	@Override
+	public Object getItem(int i) {
+		return null;
+	}
+
+	@Override
+	public long getItemId(int i) {
+		return 0;
+	}
+
+	@Override
+	public View getView(int i, View view, ViewGroup viewGroup) {
+		return null;
+	}
+
+/*	private List<Person> persons = new ArrayList<>();
 
 	@SystemService
 	protected LayoutInflater inflater;
@@ -100,5 +119,5 @@ public class PersonAdapter extends BaseAdapter {
 		public TextView textViewPersonEmail;
 		public RoundedImageView imageViewPerson;
 		public View layoutPersonWrapper;
-	}
+	}*/
 }

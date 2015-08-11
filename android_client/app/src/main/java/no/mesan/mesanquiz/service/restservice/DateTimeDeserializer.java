@@ -14,7 +14,7 @@ import com.google.gson.JsonParseException;
 public class DateTimeDeserializer implements JsonDeserializer<DateTime> {
     public DateTime deserialize(JsonElement json, Type typeOfT,
                                 JsonDeserializationContext context) throws JsonParseException {
-        long asLong = json.getAsJsonPrimitive().getAsLong()*1000L;
+        long asLong = json.getAsJsonPrimitive().getAsLong();
         DateTime dateTime = new DateTime(asLong);
         Log.i(this.getClass().getSimpleName(), "time: " + asLong + ", date: " + dateTime);
         return dateTime;

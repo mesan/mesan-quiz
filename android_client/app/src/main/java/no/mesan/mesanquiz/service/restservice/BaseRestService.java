@@ -19,6 +19,10 @@ public class BaseRestService {
         return getRestAdapter().create(GameRestService.class);
     }
 
+    public static ScoreRestService getScoreRestService() {
+        return getRestAdapter().create(ScoreRestService.class);
+    }
+
     private static RestAdapter getRestAdapter() {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(DateTime.class, new DateTimeDeserializer())

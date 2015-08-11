@@ -24,8 +24,12 @@ import no.mesan.mesanquiz.model.PersonDto;
 import no.mesan.mesanquiz.view.AbstractFragment;
 
 public class PersonFragment extends AbstractFragment {
+	@Override
+	protected int getViewId() {
+		return 0;
+	}
 
-	@InjectView(R.id.swipeRefreshPeople)
+/*	@InjectView(R.id.swipeRefreshPeople)
     protected SwipeRefreshLayout swipeRefreshPeople;
 
 	@InjectView(R.id.listViewPeople)
@@ -221,5 +225,5 @@ public class PersonFragment extends AbstractFragment {
 		a.setInterpolator(new AccelerateDecelerateInterpolator());
 		// a.setFillAfter(true);
 		v.startAnimation(a);
-	}
+	}*/
 }
