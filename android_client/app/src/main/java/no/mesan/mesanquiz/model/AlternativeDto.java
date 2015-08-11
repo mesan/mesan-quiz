@@ -8,8 +8,14 @@ public class AlternativeDto extends SugarRecord<AlternativeDto> {
     private String alternative;
     private boolean answer;
 
+
     public AlternativeDto() {
-        super();
+
+    }
+
+    public AlternativeDto(String alternative, boolean answer) {
+        this.alternative = alternative;
+        this.answer = answer;
     }
 
     public long getAlternativeId() {

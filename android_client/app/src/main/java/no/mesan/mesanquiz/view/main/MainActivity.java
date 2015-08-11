@@ -33,6 +33,7 @@ import no.mesan.mesanquiz.event.LoggedInEvent;
 import no.mesan.mesanquiz.view.AbstractActivity;
 import no.mesan.mesanquiz.view.MenuAdapter;
 import no.mesan.mesanquiz.view.model.MenuItem;
+import no.mesan.mesanquiz.view.newquiz.NewQuizFragment;
 import no.mesan.mesanquiz.view.profile.LoginFragment;
 import no.mesan.mesanquiz.view.question.QuestionFragment;
 import no.mesan.mesanquiz.view.quizlist.QuizListFragment;
@@ -139,7 +140,8 @@ public class MainActivity extends AbstractActivity {
             Toast.makeText(context, "Encryption failed", Toast.LENGTH_SHORT).show();
         }
 
-        goToFragment(LoginFragment.class, false);
+//        goToFragment(LoginFragment.class, false);
+        goToFragment(NewQuizFragment.class, false);
     }
 
     @Override
@@ -187,7 +189,7 @@ public class MainActivity extends AbstractActivity {
         super.onBackPressed();
     }
 
-    private void goToFragment(Class<? extends Fragment> fragment, boolean animate) {
+    public void goToFragment(Class<? extends Fragment> fragment, boolean animate) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (animate) {
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
