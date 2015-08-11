@@ -3,6 +3,7 @@ import UIKit
 
 class QuestionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "QuestionCell"
     var questions: [Question]!
     
@@ -18,6 +19,7 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
         let question = questions[indexPath.row]
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! QuestionCell
+        cell.setQuestion(question)
         
         return cell
     }
@@ -27,5 +29,6 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
         let createQuestionViewController = segue.sourceViewController as! CreateQuestionViewController
         let question = createQuestionViewController.question
         self.questions.append(question)
+        self.tableView.reloadData()
     }
 }

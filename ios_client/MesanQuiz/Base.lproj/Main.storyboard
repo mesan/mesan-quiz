@@ -362,7 +362,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86e-4V-5cC">
                                 <rect key="frame" x="16" y="531" width="568" height="49"/>
-                                <color key="backgroundColor" red="0.59859722849999997" green="0.0" blue="0.011020736769999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.77254901960784317" green="0.054901960784313725" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="DJ9-wz-2WN"/>
                                 </constraints>
@@ -464,7 +464,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="515"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestionCell" rowHeight="147" id="8hm-eb-UNV" customClass="QuestionCell" customModule="MesanQuiz" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="QuestionCell" rowHeight="147" id="8hm-eb-UNV" customClass="QuestionCell" customModule="MesanQuiz" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8hm-eb-UNV" id="YmL-xm-vjF">
@@ -526,12 +526,23 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="alternative1Label" destination="Jnx-q7-Tu4" id="WgF-jI-H8O"/>
+                                            <outlet property="alternative2Label" destination="YAx-kH-YsH" id="9PJ-k3-Bmn"/>
+                                            <outlet property="alternative3Label" destination="hcB-Bo-AYi" id="XiL-9F-I0R"/>
+                                            <outlet property="alternative4Label" destination="SXq-Q1-zh3" id="PAv-ue-NUJ"/>
+                                            <outlet property="questionLabel" destination="6te-sg-7dA" id="zlZ-IT-Dko"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fmm-P2-gNG" id="bzJ-8F-PXe"/>
+                                    <outlet property="delegate" destination="fmm-P2-gNG" id="CFw-1v-NsT"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giZ-ze-WJd">
                                 <rect key="frame" x="16" y="531" width="568" height="49"/>
-                                <color key="backgroundColor" red="0.59859722849999997" green="0.0" blue="0.011020736769999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.77254901960784317" green="0.054901960784313725" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="PuS-J8-5FB"/>
                                 </constraints>
@@ -560,6 +571,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="xMb-O2-SEf" id="K2u-sY-gaC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gfv-Ao-UTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -646,7 +660,7 @@
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziE-yG-PZe">
                                 <rect key="frame" x="16" y="531" width="568" height="49"/>
-                                <color key="backgroundColor" red="0.59859722849999997" green="0.0" blue="0.011020736769999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.77254901960784317" green="0.054901960784313725" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="Z1k-OB-WWO"/>
                                 </constraints>
