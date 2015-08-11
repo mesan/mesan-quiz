@@ -17,6 +17,8 @@
 		84FB84821AF7C30300F32992 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FB84801AF7C30300F32992 /* LaunchScreen.xib */; };
 		84FB848E1AF7C30300F32992 /* MesanQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB848D1AF7C30300F32992 /* MesanQuizTests.swift */; };
 		9F22C4541B7A518C0000ACA2 /* CreateQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F22C4531B7A518C0000ACA2 /* CreateQuizViewController.swift */; };
+		9F22C4561B7A67F70000ACA2 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F22C4551B7A67F70000ACA2 /* QuestionCell.swift */; };
+		9F22C4581B7A68F30000ACA2 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F22C4571B7A68F30000ACA2 /* QuestionsViewController.swift */; };
 		9F2B01BE1B2743F2000EA55B /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B01BD1B2743F2000EA55B /* GamesViewController.swift */; };
 		9F2B01C01B2746AD000EA55B /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B01BF1B2746AD000EA55B /* GameCell.swift */; };
 		9F2B01C21B275089000EA55B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B01C11B275089000EA55B /* ImageService.swift */; };
@@ -53,6 +55,8 @@
 		84FB848C1AF7C30300F32992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84FB848D1AF7C30300F32992 /* MesanQuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesanQuizTests.swift; sourceTree = "<group>"; };
 		9F22C4531B7A518C0000ACA2 /* CreateQuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateQuizViewController.swift; sourceTree = "<group>"; };
+		9F22C4551B7A67F70000ACA2 /* QuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
+		9F22C4571B7A68F30000ACA2 /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		9F2B01BD1B2743F2000EA55B /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		9F2B01BF1B2746AD000EA55B /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		9F2B01C11B275089000EA55B /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
@@ -133,11 +137,13 @@
 				9F2B01C31B275F87000EA55B /* QuizResultViewController.swift */,
 				9F2B01BF1B2746AD000EA55B /* GameCell.swift */,
 				9F2B01C51B276413000EA55B /* QuizResultCell.swift */,
+				9F22C4531B7A518C0000ACA2 /* CreateQuizViewController.swift */,
+				9F22C4551B7A67F70000ACA2 /* QuestionCell.swift */,
+				9F22C4571B7A68F30000ACA2 /* QuestionsViewController.swift */,
 				84FB847B1AF7C30300F32992 /* Main.storyboard */,
 				84FB847E1AF7C30300F32992 /* Images.xcassets */,
 				84FB84801AF7C30300F32992 /* LaunchScreen.xib */,
 				84FB84751AF7C30300F32992 /* Supporting Files */,
-				9F22C4531B7A518C0000ACA2 /* CreateQuizViewController.swift */,
 			);
 			path = MesanQuiz;
 			sourceTree = "<group>";
@@ -272,6 +278,7 @@
 				84140D9C1B0257CF00F2D904 /* GameService.swift in Sources */,
 				9FE7B84D1B027C0C008389FF /* Alternative.swift in Sources */,
 				9F2B01C61B276413000EA55B /* QuizResultCell.swift in Sources */,
+				9F22C4561B7A67F70000ACA2 /* QuestionCell.swift in Sources */,
 				9F22C4541B7A518C0000ACA2 /* CreateQuizViewController.swift in Sources */,
 				9F2B01BE1B2743F2000EA55B /* GamesViewController.swift in Sources */,
 				9F2B01C01B2746AD000EA55B /* GameCell.swift in Sources */,
@@ -282,6 +289,7 @@
 				9F2B01C21B275089000EA55B /* ImageService.swift in Sources */,
 				9FE7B84B1B027B0E008389FF /* Question.swift in Sources */,
 				9FE7B8491B026427008389FF /* Service.swift in Sources */,
+				9F22C4581B7A68F30000ACA2 /* QuestionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
