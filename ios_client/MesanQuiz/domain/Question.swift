@@ -13,9 +13,14 @@ class Question : Printable {
     var gameId: Int?
     var question: String?
     var alternatives: [Alternative]?
+    var subject: String?
     
     var description: String {
         return "{ id: \(id!), gameId: \(gameId!), question: \(question!), alternatives: \(alternatives!) }"
+    }
+    
+    init() {
+        
     }
     
     init(id: Int, gameId: Int, question: String, alternatives: [Alternative]) {

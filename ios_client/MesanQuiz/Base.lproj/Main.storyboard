@@ -378,7 +378,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiznavn " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmf-MM-9gJ">
                                 <rect key="frame" x="16" y="80" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Navn på quiz" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UPl-Es-lu0">
@@ -389,7 +389,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tema" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2J-vj-nvK">
                                 <rect key="frame" x="16" y="161" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tema for quiz" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJY-W4-cxh">
@@ -400,7 +400,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tid per spørsmål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgr-gj-R9U">
                                 <rect key="frame" x="16" y="242" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="H1z-hF-Vap">
@@ -409,7 +409,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 sekunder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEA-8a-5HA">
                                 <rect key="frame" x="253" y="309" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -451,7 +451,7 @@
         <!--Spørsmål-->
         <scene sceneID="zXs-MH-byV">
             <objects>
-                <viewController id="fmm-P2-gNG" sceneMemberID="viewController">
+                <viewController id="fmm-P2-gNG" customClass="QuestionsViewController" customModule="MesanQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PE5-Pp-gVX"/>
                         <viewControllerLayoutGuide type="bottom" id="9YB-3K-m6g"/>
@@ -473,31 +473,31 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hvilket fjell er tredje høyest i Norge?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6te-sg-7dA">
                                                     <rect key="frame" x="16" y="16" width="584" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A) Et fjell" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jnx-q7-Tu4">
                                                     <rect key="frame" x="16" y="45" width="584" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B) Et annet fjell" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAx-kH-YsH">
                                                     <rect key="frame" x="16" y="70" width="584" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C) Et tredje fjell" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcB-Bo-AYi">
                                                     <rect key="frame" x="16" y="95" width="584" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D) Ingen fjell" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXq-Q1-zh3">
                                                     <rect key="frame" x="16" y="120" width="584" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -568,7 +568,7 @@
         <!--Nytt spørsmål-->
         <scene sceneID="fSy-sB-Yhp">
             <objects>
-                <viewController id="DgA-42-gHx" sceneMemberID="viewController">
+                <viewController id="DgA-42-gHx" customClass="CreateQuestionViewController" customModule="MesanQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yaO-dc-FKN"/>
                         <viewControllerLayoutGuide type="bottom" id="GPe-Np-60r"/>
@@ -580,7 +580,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spørsmål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7S-wG-RUN">
                                 <rect key="frame" x="16" y="80" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Kd-W8-0Vd">
@@ -595,19 +595,19 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tema" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NX-RJ-RXA">
                                 <rect key="frame" x="16" y="183" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alternativer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajk-8h-XSP">
                                 <rect key="frame" x="16" y="250" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velg riktig alternativ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ab8-GF-jsP">
                                 <rect key="frame" x="16" y="431" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nin-Cc-tw5">
@@ -620,17 +620,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alternativ 1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ubM-2W-cap">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alternativ 2" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ubM-2W-cap">
                                 <rect key="frame" x="16" y="317" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alternativ 1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r0S-At-3a3">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alternativ 3" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r0S-At-3a3">
                                 <rect key="frame" x="16" y="355" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alternativ 1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KjN-mR-CvP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alternativ 4" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KjN-mR-CvP">
                                 <rect key="frame" x="16" y="393" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -644,6 +644,21 @@
                                     <segment title="4"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziE-yG-PZe">
+                                <rect key="frame" x="16" y="531" width="568" height="49"/>
+                                <color key="backgroundColor" red="0.59859722849999997" green="0.0" blue="0.011020736769999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="Z1k-OB-WWO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Lagre spørsmål">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveQuestion:" destination="DgA-42-gHx" eventType="touchUpInside" id="9JE-Lz-1Ge"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -654,6 +669,7 @@
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="leading" secondItem="hvj-7g-4BP" secondAttribute="leading" id="6oR-jH-7sJ"/>
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="trailing" secondItem="KjN-mR-CvP" secondAttribute="trailing" id="8RI-lQ-egU"/>
                             <constraint firstItem="ab8-GF-jsP" firstAttribute="top" secondItem="KjN-mR-CvP" secondAttribute="bottom" constant="8" id="9C7-9T-Gv9"/>
+                            <constraint firstItem="ziE-yG-PZe" firstAttribute="leading" secondItem="C1i-3F-aR5" secondAttribute="leadingMargin" id="DXo-P3-5kA"/>
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="trailing" secondItem="Nin-Cc-tw5" secondAttribute="trailing" id="DlK-Sd-lSA"/>
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="trailing" secondItem="fsQ-Ew-77f" secondAttribute="trailing" id="E8Z-1Z-Fu8"/>
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="leading" secondItem="Nin-Cc-tw5" secondAttribute="leading" id="ELm-tB-s4i"/>
@@ -661,11 +677,14 @@
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="trailing" secondItem="8NX-RJ-RXA" secondAttribute="trailing" id="IzL-VA-8cA"/>
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="trailing" secondItem="r0S-At-3a3" secondAttribute="trailing" id="LwQ-BB-qhx"/>
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="trailing" secondItem="5Kd-W8-0Vd" secondAttribute="trailing" id="MuO-nd-zhk"/>
+                            <constraint firstItem="GPe-Np-60r" firstAttribute="top" secondItem="ziE-yG-PZe" secondAttribute="bottom" constant="20" id="Own-2G-rjO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ziE-yG-PZe" secondAttribute="trailing" id="TXG-yF-89s"/>
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="leading" secondItem="5Kd-W8-0Vd" secondAttribute="leading" id="Tbl-br-Tui"/>
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="trailing" secondItem="hvj-7g-4BP" secondAttribute="trailing" id="Uhx-WY-8MK"/>
                             <constraint firstItem="r0S-At-3a3" firstAttribute="top" secondItem="ubM-2W-cap" secondAttribute="bottom" constant="8" id="XDa-N6-ISs"/>
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="leading" secondItem="ab8-GF-jsP" secondAttribute="leading" id="Z5N-B4-BsZ"/>
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="trailing" secondItem="ab8-GF-jsP" secondAttribute="trailing" id="c6G-HS-6ba"/>
+                            <constraint firstItem="ziE-yG-PZe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hvj-7g-4BP" secondAttribute="bottom" constant="8" id="cut-cV-Sfc"/>
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="leading" secondItem="r0S-At-3a3" secondAttribute="leading" id="elz-Ju-br2"/>
                             <constraint firstItem="T7S-wG-RUN" firstAttribute="trailing" secondItem="C1i-3F-aR5" secondAttribute="trailingMargin" id="f5A-h7-AtQ"/>
                             <constraint firstItem="Nin-Cc-tw5" firstAttribute="top" secondItem="8NX-RJ-RXA" secondAttribute="bottom" constant="8" id="gE7-rE-upd"/>
@@ -683,8 +702,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nytt spørsmål" id="u5V-UR-7JJ"/>
+                    <connections>
+                        <outlet property="alternative1TextField" destination="fsQ-Ew-77f" id="4aJ-SY-YSX"/>
+                        <outlet property="alternative2TextField" destination="ubM-2W-cap" id="IVN-jX-cSL"/>
+                        <outlet property="alternative3TextField" destination="r0S-At-3a3" id="ueg-65-4Xi"/>
+                        <outlet property="alternative4TextField" destination="KjN-mR-CvP" id="gi8-Nb-n1K"/>
+                        <outlet property="correctAlternativeSelector" destination="hvj-7g-4BP" id="vHg-Z1-h3L"/>
+                        <outlet property="questionTextView" destination="5Kd-W8-0Vd" id="Pyg-wQ-zgH"/>
+                        <outlet property="subjectTextField" destination="Nin-Cc-tw5" id="fU4-yJ-X4O"/>
+                        <segue destination="Qtm-oy-Ba7" kind="unwind" identifier="saveQuestionSegue" unwindAction="reset:" id="iGq-Le-hqb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7au-3I-XJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Qtm-oy-Ba7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1368" y="1518"/>
         </scene>

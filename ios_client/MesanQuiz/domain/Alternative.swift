@@ -18,6 +18,11 @@ class Alternative : Printable {
         return "{ id: \(id!), questionId: \(questionId!), alternative: \(alternative!), answer: \(answer!) }"
     }
     
+    init(alternative: String, answer: Bool) {
+        self.alternative = alternative
+        self.answer = answer
+    }
+    
     init(id: Int, questionId: Int, alternative: String, answer: Bool) {
         self.id = id
         self.questionId = questionId

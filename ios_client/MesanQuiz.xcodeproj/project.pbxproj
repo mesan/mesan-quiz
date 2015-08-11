@@ -10,6 +10,7 @@
 		84140D961B02576F00F2D904 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84140D931B02576F00F2D904 /* Game.swift */; };
 		84140D971B02576F00F2D904 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84140D941B02576F00F2D904 /* Person.swift */; };
 		84140D9C1B0257CF00F2D904 /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84140D9B1B0257CF00F2D904 /* GameService.swift */; };
+		8479B0AB1B7A6BF2008C50B1 /* CreateQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479B0AA1B7A6BF2008C50B1 /* CreateQuestionViewController.swift */; };
 		84FB84781AF7C30300F32992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB84771AF7C30300F32992 /* AppDelegate.swift */; };
 		84FB847A1AF7C30300F32992 /* GameQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB84791AF7C30300F32992 /* GameQuizViewController.swift */; };
 		84FB847D1AF7C30300F32992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FB847B1AF7C30300F32992 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		84140D931B02576F00F2D904 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		84140D941B02576F00F2D904 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		84140D9B1B0257CF00F2D904 /* GameService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
+		8479B0AA1B7A6BF2008C50B1 /* CreateQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateQuestionViewController.swift; sourceTree = "<group>"; };
 		84FB84721AF7C30300F32992 /* MesanQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MesanQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FB84761AF7C30300F32992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84FB84771AF7C30300F32992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				84FB847E1AF7C30300F32992 /* Images.xcassets */,
 				84FB84801AF7C30300F32992 /* LaunchScreen.xib */,
 				84FB84751AF7C30300F32992 /* Supporting Files */,
+				8479B0AA1B7A6BF2008C50B1 /* CreateQuestionViewController.swift */,
 			);
 			path = MesanQuiz;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				9F2B01BE1B2743F2000EA55B /* GamesViewController.swift in Sources */,
 				9F2B01C01B2746AD000EA55B /* GameCell.swift in Sources */,
 				84140D961B02576F00F2D904 /* Game.swift in Sources */,
+				8479B0AB1B7A6BF2008C50B1 /* CreateQuestionViewController.swift in Sources */,
 				84FB84781AF7C30300F32992 /* AppDelegate.swift in Sources */,
 				9F2B01C81B2764DA000EA55B /* QuizResult.swift in Sources */,
 				9F2B01C41B275F87000EA55B /* QuizResultViewController.swift in Sources */,

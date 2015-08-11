@@ -21,4 +21,11 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
         
         return cell
     }
+    
+    
+    @IBAction func reset(segue: UIStoryboardSegue) {
+        let createQuestionViewController = segue.sourceViewController as! CreateQuestionViewController
+        let question = createQuestionViewController.question
+        self.questions.append(question)
+    }
 }
