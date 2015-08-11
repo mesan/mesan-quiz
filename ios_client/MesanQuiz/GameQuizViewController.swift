@@ -28,6 +28,8 @@ class GameQuizViewController: UIViewController {
     
     let nextQuestionDelay = 1.0
     
+    let showResultSegueIdentifier = "showResult"
+    
     func fixNavigationBar() {
         self.navigationController?.navigationBar.translucent = false
     }
@@ -66,11 +68,7 @@ class GameQuizViewController: UIViewController {
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             if questionIndex >= self.game.questions!.count {
                 println("Game complete! \(self.correctAnswers) correct answers")
-                
-                let quizResultViewController = self.storyboard!.instantiateViewControllerWithIdentifier("QuizResultViewController") as! QuizResultViewController
-                // TODO: Player name
-                quizResultViewController.addNewResult(QuizResult(fullName: "Anders Ullnæss", score: self.correctAnswers, numberOfQuestions: self.game.questions!.count))
-                self.navigationController?.showDetailViewController(quizResultViewController, sender: self)
+                self .performSegueWithIdentifier(self.showResultSegueIdentifier, sender: self)
                 
                 return
             }
@@ -78,6 +76,13 @@ class GameQuizViewController: UIViewController {
             self.currentQuestionIndex = questionIndex
             
             self.initView(self.game.questions?[self.currentQuestionIndex])
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == self.showResultSegueIdentifier {
+            let quizResultViewController = segue.destinationViewController as! QuizResultViewController
+            quizResultViewController.addNewResult(QuizResult(fullName: "Anders Ullnæss", score: self.correctAnswers, numberOfQuestions: self.game.questions!.count))
         }
     }
     
