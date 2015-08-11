@@ -1,7 +1,9 @@
 package no.mesan.mesanquiz.model;
 
+import com.google.android.gms.games.quest.Quest;
 import com.orm.SugarRecord;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameDto extends SugarRecord<GameDto> {
@@ -54,5 +56,13 @@ public class GameDto extends SugarRecord<GameDto> {
 
     public void setQuestions(List<QuestionDto> questions) {
         this.questions = questions;
+    }
+
+    public void addQuestion(QuestionDto questionDto) {
+        if(questions == null) {
+            questions = new ArrayList<>();
+        }
+
+        questions.add(questionDto);
     }
 }

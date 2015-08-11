@@ -29,5 +29,9 @@
     <string name="hello_world">Hello world!</string>
 
     <string name="returnToQuiz">Tilbake til quizoversikten</string>
+    <string name="quiz_name">Navn på quiz</string>
+    <string name="next">Neste</string>
+    <string name="quiz_question">Ditt spørsmål</string>
+    <string name="create_question">Opprett spørsmål</string>
 
 </resources>
