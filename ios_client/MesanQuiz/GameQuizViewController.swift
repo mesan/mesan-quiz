@@ -150,14 +150,8 @@ class GameQuizViewController: UIViewController {
             if let alternative = question.alternatives?.filter({ $0.alternative! == sender.titleLabel?.text }).first {
                 println(alternative.alternative)
                 
-                if alternative.answer! {
-                    correctAnswers++
-                    sender.backgroundColor = UIColor.mesanQuizGreenColor()
-                } else {
-                    sender.backgroundColor = UIColor.redColor()
-                }
-                
                 sender.backgroundColor = alternative.answer! ? UIColor.mesanQuizGreenColor() : UIColor.redColor()
+                sender.setTitleColor(UIColor.whiteColor(), forState: .Disabled)
                 self.setTimer(nil)
                 
                 self.disableButtons()
