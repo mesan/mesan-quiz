@@ -34,7 +34,8 @@ public class ResultActivityFragment extends AbstractFragment {
     @InjectView(R.id.resultCommentTextView)
     TextView resultCommentTextView;
 
-    private List<ScoreDto> scores;
+    private int points;
+    private int size;
 
     public ResultActivityFragment() {
     }
@@ -48,8 +49,8 @@ public class ResultActivityFragment extends AbstractFragment {
         View view = super.onCreateView(inflater, container, savedInstanceState);
 
         Bundle bundle = getArguments();
-        int points = bundle.getInt(QuestionFragment.ARG_POINTS, 0);
-        int size = bundle.getInt(QuestionFragment.ARG_SIZE, 0);
+        points = bundle.getInt(QuestionFragment.ARG_POINTS, 0);
+        size = bundle.getInt(QuestionFragment.ARG_SIZE, 0);
 
         resultTextView.setText(points + "/" + size + " riktige!");
 
@@ -60,14 +61,34 @@ public class ResultActivityFragment extends AbstractFragment {
 
     @Subscribe
     public void scoreReceived(ScoreEvent scoreEvent) {
-        scores = scoreEvent.getScoreDtoList();
+        List<ScoreDto> scores = scoreEvent.getScoreDtoList();
 
-        resultCommentTextView.setText("Toppliste\n\n");
+        resultCommentTextView.setText(beregnKommentar() + "\n\nToppliste\n\n");
 
         for (int i = 0; i < scores.size(); i++) {
-            resultCommentTextView.append(i + ") " + scores.get(i).getPlayer().getFullName());
+            ScoreDto score = scores.get(i);
+            resultCommentTextView.append(i + 1 + ") " + score.getPlayer().getFullName() + "\t\t" +
+                    score.getCorrectAnswers() + "/" + score.getQuestionCount() + "\n");
         }
+    }
 
+    private String beregnKommentar() {
+        double scorePercentage = (double)points/(double)size;
+
+        if (scorePercentage >= 1) {
+            return "Perfekt!";
+        } else if (scorePercentage >= 0.8 && scorePercentage < 1) {
+            return "Nesten perfekt!";
+        } else if (scorePercentage >= 0.6 && scorePercentage < 0.8) {
+            return "Bra!";
+        } else if (scorePercentage >= 0.4 && scorePercentage < 0.6) {
+            return "Ok";
+        } else if (scorePercentage >= 0.2 && scorePercentage < 0.4) {
+            return "Litt skuffende..";
+        } else if (scorePercentage >= 0 && scorePercentage < 0.2) {
+            return "Bedre lykke neste gang";
+        }
+        return "";
     }
 
     @Override
