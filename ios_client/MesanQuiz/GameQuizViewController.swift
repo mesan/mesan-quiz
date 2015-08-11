@@ -91,8 +91,9 @@ class GameQuizViewController: UIViewController {
             return
         }
         
+        self.countDownTimeLeft = game.timeLimit
         self.labelTimeLeft.textColor = UIColor.blackColor()
-        self.labelTimeLeft.text = nil
+        self.labelTimeLeft.text = "\(self.countDownTimeLeft) sekunder igjen!"
 
         self.questionNumber.text = "\(self.currentQuestionIndex + 1) / \(game.questions!.count)"
         self.questionText.text = question.question
@@ -113,7 +114,6 @@ class GameQuizViewController: UIViewController {
             }
         }
         
-        self.countDownTimeLeft = game.timeLimit
         self.setTimer(NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countDown:"), userInfo: nil, repeats: true))
     }
     
