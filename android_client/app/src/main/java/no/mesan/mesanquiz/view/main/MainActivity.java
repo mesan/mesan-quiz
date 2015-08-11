@@ -186,13 +186,20 @@ public class MainActivity extends AbstractActivity {
         super.onBackPressed();
     }
 
-    private void goToFragment(Class<? extends Fragment> fragment, boolean animate) {
+    public void goToFragment(Class<? extends Fragment> fragment, boolean animate) {
+        goToFragment(fragment, null, animate);
+    }
+
+    public void goToFragment(Class<? extends Fragment> fragment, Bundle bundle, boolean animate) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (animate) {
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
         }
         try {
             Fragment fragmentInstance = fragment.newInstance();
+            if(bundle != null) {
+                fragmentInstance.setArguments(bundle);
+            }
             transaction.replace(R.id.mainContainer, fragmentInstance, fragment.getName());
             transaction.addToBackStack(null);
             transaction.commitAllowingStateLoss();

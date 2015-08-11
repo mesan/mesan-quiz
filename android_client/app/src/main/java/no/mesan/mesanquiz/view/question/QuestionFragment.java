@@ -31,6 +31,7 @@ import no.mesan.mesanquiz.model.GameDto;
 import no.mesan.mesanquiz.model.QuestionDto;
 import no.mesan.mesanquiz.view.AbstractFragment;
 import no.mesan.mesanquiz.view.adapter.AlternativeAdapter;
+import no.mesan.mesanquiz.view.main.MainActivity;
 
 public class QuestionFragment extends AbstractFragment implements AdapterView.OnItemClickListener{
 
@@ -116,10 +117,11 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
             updateQuestion(game.getQuestions().get(currentQuestion));
         }
         else {
-            Intent i = new Intent(getContext(), ResultActivity.class);
-            i.putExtra(ARG_POINTS, points);
-            i.putExtra(ARG_SIZE, game.getQuestions().size());
-            startActivity(i);
+            Bundle bundle = new Bundle();
+            bundle.putInt(ARG_POINTS, points);
+            bundle.putInt(ARG_SIZE, game.getQuestions().size());
+
+            ((MainActivity) getActivity()).goToFragment(ResultActivityFragment.class, bundle, false);
         }
     }
 

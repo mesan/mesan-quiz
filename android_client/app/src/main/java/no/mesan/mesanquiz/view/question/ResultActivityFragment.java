@@ -43,14 +43,16 @@ public class ResultActivityFragment extends AbstractFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        ((ActionBarActivity) getActivity()).getSupportActionBar().setTitle(scores.get(0)
+                .getGame().getName() + " - ferdig!");
+
         View view = super.onCreateView(inflater, container, savedInstanceState);
 
-        Intent i = getActivity().getIntent();
-        int points = i.getIntExtra(QuestionFragment.ARG_POINTS, 0);
-        int size = i.getIntExtra(QuestionFragment.ARG_SIZE, 0);
+        Bundle bundle = getArguments();
+        int points = bundle.getInt(QuestionFragment.ARG_POINTS, 0);
+        int size = bundle.getInt(QuestionFragment.ARG_SIZE, 0);
 
         resultTextView.setText(points + "/" + size + " riktige!");
-        resultCommentTextView.setText("Ganske bra :)"); // TODO: Make comment string based on result
 
         getJobManager().addJobInBackground(new ScoreJob(getContext()));
 
@@ -60,7 +62,6 @@ public class ResultActivityFragment extends AbstractFragment {
     @Subscribe
     public void scoreReceived(ScoreEvent scoreEvent) {
         scores = scoreEvent.getScoreDtoList();
-        //((ActionBarActivity) getActivity()).getSupportActionBar().setTitle(scores.get(0).getCorrectAnswers());
 
         Log.d("SCORE", scores.get(0).toString());
     }
