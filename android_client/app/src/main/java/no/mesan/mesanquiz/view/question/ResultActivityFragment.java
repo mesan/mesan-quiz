@@ -43,8 +43,7 @@ public class ResultActivityFragment extends AbstractFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ((ActionBarActivity) getActivity()).getSupportActionBar().setTitle(scores.get(0)
-                .getGame().getName() + " - ferdig!");
+        ((ActionBarActivity) getActivity()).getSupportActionBar().setTitle("Ferdig!");
 
         View view = super.onCreateView(inflater, container, savedInstanceState);
 
@@ -63,7 +62,12 @@ public class ResultActivityFragment extends AbstractFragment {
     public void scoreReceived(ScoreEvent scoreEvent) {
         scores = scoreEvent.getScoreDtoList();
 
-        Log.d("SCORE", scores.get(0).toString());
+        resultCommentTextView.setText("Toppliste\n\n");
+
+        for (int i = 0; i < scores.size(); i++) {
+            resultCommentTextView.append(i + ") " + scores.get(i).getPlayer().getFullName());
+        }
+
     }
 
     @Override
