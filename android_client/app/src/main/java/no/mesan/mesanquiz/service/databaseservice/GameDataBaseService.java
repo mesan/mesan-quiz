@@ -27,6 +27,12 @@ public class GameDataBaseService extends AbstractDatabaseService {
         EventDto.saveInTx(gameToBeSaved.getQuestions());
     }
 
+    public void saveGames(final List<GameDto> gamesToBeSaved) {
+        for (GameDto game : gamesToBeSaved) {
+            saveGame(game);
+        }
+   }
+
     public GameDto getGames() {
         List<GameDto> gameList = GameDto.listAll(GameDto.class);
         List<QuestionDto> questionDtoList = QuestionDto.listAll(QuestionDto.class);

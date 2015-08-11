@@ -35,6 +35,7 @@ import no.mesan.mesanquiz.view.MenuAdapter;
 import no.mesan.mesanquiz.view.model.MenuItem;
 import no.mesan.mesanquiz.view.profile.LoginFragment;
 import no.mesan.mesanquiz.view.question.QuestionFragment;
+import no.mesan.mesanquiz.view.quizlist.QuizListFragment;
 
 import static no.mesan.mesanquiz.common.Constants.AUTHORITY_URL;
 import static no.mesan.mesanquiz.common.Constants.CLIENT_ID;
@@ -235,7 +236,7 @@ public class MainActivity extends AbstractActivity {
 
                 if (authenticationResult.getUserInfo() != null) {
                     updateLoginButton();
-                    goToFragment(QuestionFragment.class, true);
+                    goToFragment(QuizListFragment.class, true);
                 }
                 BusProvider.getInstance().post(new LoggedInEvent());
             }

@@ -30,6 +30,7 @@ import no.mesan.mesanquiz.model.GameDto;
 import no.mesan.mesanquiz.model.QuestionDto;
 import no.mesan.mesanquiz.view.AbstractFragment;
 import no.mesan.mesanquiz.view.adapter.AlternativeAdapter;
+import no.mesan.mesanquiz.view.question.ResultActivity;
 
 public class ScoreFragment extends AbstractFragment implements AdapterView.OnItemClickListener{
 
