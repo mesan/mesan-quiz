@@ -18,6 +18,7 @@ class QuizResultViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     override func viewDidLoad() {
+        self.navigationItem.hidesBackButton = true
         scoreLabel.text = "\(newResult.score) / \(newResult.numberOfQuestions) riktige!"
         
         var percentage = Double(newResult.score)/Double(newResult.numberOfQuestions)
@@ -44,4 +45,15 @@ class QuizResultViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
 
+    @IBAction func backToQuizzesClicked(sender: AnyObject) {
+        //self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController!.popToRootViewControllerAnimated(true)
+        
+        /*for viewController in self.navigationController!.viewControllers {
+            if viewController.isKindOfClass(GamesViewController) {
+                let gamesViewController = viewController as! GamesViewController
+                self.navigationController!.popToViewController(gamesViewController, animated: true)
+            }
+        }*/
+    }
 }

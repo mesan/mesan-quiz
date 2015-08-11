@@ -105,7 +105,6 @@
                             <constraint firstItem="fLf-Bw-WiN" firstAttribute="top" secondItem="4PA-g8-7VU" secondAttribute="bottom" constant="8" id="wID-Oq-ays"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dHT-xA-IDU"/>
                     <connections>
                         <outlet property="btnAlternative1" destination="4GI-h3-gmW" id="3hR-eU-JG8"/>
                         <outlet property="btnAlternative2" destination="P5x-15-h87" id="KvY-I7-SOF"/>
@@ -114,7 +113,7 @@
                         <outlet property="labelTimeLeft" destination="ezV-RI-woO" id="GoD-lM-hGO"/>
                         <outlet property="questionNumber" destination="wmK-Tn-Qn5" id="7Q3-0a-ql0"/>
                         <outlet property="questionText" destination="yLc-cC-wdW" id="5OK-E3-8Qe"/>
-                        <segue destination="waP-3p-2jx" kind="showDetail" identifier="showResult" id="Rt4-Nf-f9A"/>
+                        <segue destination="waP-3p-2jx" kind="show" identifier="showResult" id="Rt4-Nf-f9A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -195,6 +194,9 @@
                                 <state key="normal" title="Tilbake til quizene">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="backToQuizzesClicked:" destination="waP-3p-2jx" eventType="touchUpInside" id="wyH-Vf-GZw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

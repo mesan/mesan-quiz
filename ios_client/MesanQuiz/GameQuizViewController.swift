@@ -30,12 +30,9 @@ class GameQuizViewController: UIViewController {
     
     let showResultSegueIdentifier = "showResult"
     
-    func fixNavigationBar() {
-        self.navigationController?.navigationBar.translucent = false
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
