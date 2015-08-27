@@ -210,8 +210,8 @@ public class MainActivity extends AbstractActivity {
     }
 
 
-    public void goToResults() {
-        goToFragment(ResultFragment.class, true);
+    public void goToResults(Bundle bundle) {
+        goToFragment(ResultFragment.class, bundle, true);
     }
 
     @Override

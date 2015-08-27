@@ -118,7 +118,7 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
             bundle.putInt(ARG_POINTS, points);
             bundle.putInt(ARG_SIZE, game.getQuestions().size());
 
-            ((MainActivity)getActivity()).goToResults();
+            ((MainActivity)getActivity()).goToResults(bundle);
         }
     }
 
