@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.question.ResultActivity"
+            android:name=".view.game.ResultActivity"
             android:label="@string/title_activity_result" >
         </activity>
     </application>

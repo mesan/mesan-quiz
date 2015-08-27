@@ -1,7 +1,5 @@
-package no.mesan.mesanquiz.view.question;
+package no.mesan.mesanquiz.view.game;
 
-import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -46,6 +44,12 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
 
     @InjectView(R.id.timeLeftTextView)
     TextView timeLeftTextView;
+
+    @InjectView(R.id.resultScore)
+    TextView resultScore;
+
+    @InjectView(R.id.resultComment)
+    TextView resultComment;
 
     private GameDto game;
     private int currentQuestion = 0;
@@ -111,17 +115,22 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
         }.start();
     }
 
+    private void updateResults() {
+        resultScore.setText(points + "/" + game.getQuestions().size() + " riktige!");
+        resultComment.setText("Ganske bra :)"); // TODO: Make comment string based on result
+    }
+
     private void moveToNextQuestion() {
-        if(currentQuestion < game.getQuestions().size() - 1 ){
-            currentQuestion++;
+        currentQuestion++;
+        if (currentQuestion < game.getQuestions().size()) {
             updateQuestion(game.getQuestions().get(currentQuestion));
-        }
-        else {
+        } else {
             Bundle bundle = new Bundle();
             bundle.putInt(ARG_POINTS, points);
             bundle.putInt(ARG_SIZE, game.getQuestions().size());
 
-            ((MainActivity) getActivity()).goToFragment(ResultActivityFragment.class, bundle, false);
+            ((MainActivity)getActivity()).goToResults();
+            updateResults();
         }
     }
 
@@ -147,7 +156,7 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
             for (int i = 0; i < alternatives.size(); i++) {
                 AlternativeDto alternative = alternatives.get(i);
                 if (alternative.isAnswer()) {
-                    View v = (View)alternativeListView.getChildAt(i);
+                    View v = alternativeListView.getChildAt(i);
                     final AnimationDrawable drawable = new AnimationDrawable();
                     final Handler handler = new Handler();
                     drawable.addFrame(new ColorDrawable(getResources().getColor(R.color.green)), 100);

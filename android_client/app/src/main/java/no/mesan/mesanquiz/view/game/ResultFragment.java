@@ -1,10 +1,7 @@
-package no.mesan.mesanquiz.view.question;
+package no.mesan.mesanquiz.view.game;
 
-import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,32 +15,29 @@ import java.util.List;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import no.mesan.mesanquiz.R;
-import no.mesan.mesanquiz.event.GameEvent;
 import no.mesan.mesanquiz.event.ScoreEvent;
-import no.mesan.mesanquiz.job.GameJob;
 import no.mesan.mesanquiz.job.ScoreJob;
-import no.mesan.mesanquiz.model.GameDto;
 import no.mesan.mesanquiz.model.ScoreDto;
 import no.mesan.mesanquiz.view.AbstractFragment;
 
-public class ResultActivityFragment extends AbstractFragment {
+public class ResultFragment extends AbstractFragment {
 
-    @InjectView(R.id.resultTextView)
-    TextView resultTextView;
+    @InjectView(R.id.resultScore)
+    TextView resultScore;
 
-    @InjectView(R.id.resultCommentTextView)
-    TextView resultCommentTextView;
+    @InjectView(R.id.resultComment)
+    TextView resultComment;
 
     private int points;
     private int size;
 
-    public ResultActivityFragment() {
+
+    public ResultFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         ((ActionBarActivity) getActivity()).getSupportActionBar().setTitle("Ferdig!");
 
         View view = super.onCreateView(inflater, container, savedInstanceState);
@@ -52,22 +46,33 @@ public class ResultActivityFragment extends AbstractFragment {
         points = bundle.getInt(QuestionFragment.ARG_POINTS, 0);
         size = bundle.getInt(QuestionFragment.ARG_SIZE, 0);
 
-        resultTextView.setText(points + "/" + size + " riktige!");
+        resultScore.setText(points + "/" + size + " riktige!");
+        resultComment.setText("Ganske bra :)"); // TODO: Make comment string based on result
 
         getJobManager().addJobInBackground(new ScoreJob(getContext()));
 
         return view;
     }
 
+    @Override
+    protected int getViewId() {
+        return R.layout.fragment_result;
+    }
+
+    @OnClick(R.id.returnButton)
+    public void onReturnButtonClicked(Button b) {
+        // TODO: Return to quiz list?
+    }
+
     @Subscribe
     public void scoreReceived(ScoreEvent scoreEvent) {
         List<ScoreDto> scores = scoreEvent.getScoreDtoList();
 
-        resultCommentTextView.setText(beregnKommentar() + "\n\nToppliste\n\n");
+        resultComment.setText(beregnKommentar() + "\n\nToppliste\n\n");
 
         for (int i = 0; i < scores.size(); i++) {
             ScoreDto score = scores.get(i);
-            resultCommentTextView.append(i + 1 + ") " + score.getPlayer().getFullName() + "\t\t" +
+            resultComment.append(i + 1 + ") " + score.getPlayer().getFullName() + "\t\t" +
                     score.getCorrectAnswers() + "/" + score.getQuestionCount() + "\n");
         }
     }
@@ -91,13 +96,4 @@ public class ResultActivityFragment extends AbstractFragment {
         return "";
     }
 
-    @Override
-    protected int getViewId() {
-        return R.layout.fragment_result;
-    }
-
-    @OnClick(R.id.returnButton)
-    public void onReturnButtonClicked(Button b) {
-        // TODO: Return to quiz list?
-    }
 }

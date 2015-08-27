@@ -1,4 +1,4 @@
-package no.mesan.mesanquiz.view.question;
+package no.mesan.mesanquiz.view.game;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;

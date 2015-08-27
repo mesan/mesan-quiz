@@ -32,9 +32,10 @@ import no.mesan.mesanquiz.common.ValueHolder;
 import no.mesan.mesanquiz.event.LoggedInEvent;
 import no.mesan.mesanquiz.view.AbstractActivity;
 import no.mesan.mesanquiz.view.MenuAdapter;
+import no.mesan.mesanquiz.view.game.ResultFragment;
 import no.mesan.mesanquiz.view.model.MenuItem;
 import no.mesan.mesanquiz.view.profile.LoginFragment;
-import no.mesan.mesanquiz.view.question.QuestionFragment;
+import no.mesan.mesanquiz.view.game.QuestionFragment;
 
 import static no.mesan.mesanquiz.common.Constants.AUTHORITY_URL;
 import static no.mesan.mesanquiz.common.Constants.CLIENT_ID;
@@ -209,6 +210,9 @@ public class MainActivity extends AbstractActivity {
     }
 
 
+    public void goToResults() {
+        goToFragment(ResultFragment.class, true);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
