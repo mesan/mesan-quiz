@@ -45,12 +45,6 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
     @InjectView(R.id.timeLeftTextView)
     TextView timeLeftTextView;
 
-    @InjectView(R.id.resultScore)
-    TextView resultScore;
-
-    @InjectView(R.id.resultComment)
-    TextView resultComment;
-
     private GameDto game;
     private int currentQuestion = 0;
     private int points = 0;
@@ -115,11 +109,6 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
         }.start();
     }
 
-    private void updateResults() {
-        resultScore.setText(points + "/" + game.getQuestions().size() + " riktige!");
-        resultComment.setText("Ganske bra :)"); // TODO: Make comment string based on result
-    }
-
     private void moveToNextQuestion() {
         currentQuestion++;
         if (currentQuestion < game.getQuestions().size()) {
@@ -130,7 +119,6 @@ public class QuestionFragment extends AbstractFragment implements AdapterView.On
             bundle.putInt(ARG_SIZE, game.getQuestions().size());
 
             ((MainActivity)getActivity()).goToResults();
-            updateResults();
         }
     }
 
