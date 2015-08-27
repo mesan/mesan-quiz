@@ -24,6 +24,9 @@ class GameCell: UITableViewCell {
         title.text = game.name.uppercaseString
         authorName.text = game.creator.fullName
         subject.text = game.topic
+        
+        // TODO: Game does not currently contain number of players
+        numberOfPlayers.text = nil
 
         initObservers()
     }

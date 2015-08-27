@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S0o-fh-oL1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S0o-fh-oL1">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -298,12 +298,13 @@
                                                 <constraint firstItem="s4L-wJ-fMN" firstAttribute="trailing" secondItem="uDc-4x-rEj" secondAttribute="trailingMargin" id="79C-Ip-K0K"/>
                                                 <constraint firstItem="mWG-h4-9UZ" firstAttribute="centerY" secondItem="FVc-xg-3MW" secondAttribute="centerY" constant="-0.5" id="8Hb-xk-Hhb"/>
                                                 <constraint firstItem="s4L-wJ-fMN" firstAttribute="leading" secondItem="uDc-4x-rEj" secondAttribute="leadingMargin" id="DQI-b9-ztB"/>
-                                                <constraint firstItem="Ck1-q0-3TQ" firstAttribute="centerX" secondItem="ffD-dn-iQx" secondAttribute="centerX" constant="-2" id="Gqa-OT-xeg"/>
                                                 <constraint firstItem="s4L-wJ-fMN" firstAttribute="leading" secondItem="uDc-4x-rEj" secondAttribute="leadingMargin" id="LUD-XT-Wht"/>
+                                                <constraint firstItem="ffD-dn-iQx" firstAttribute="top" secondItem="uDc-4x-rEj" secondAttribute="topMargin" constant="29" id="RAR-w0-ujR"/>
                                                 <constraint firstItem="s4L-wJ-fMN" firstAttribute="leading" secondItem="FVc-xg-3MW" secondAttribute="leading" id="SUl-Fk-rQw"/>
                                                 <constraint firstItem="mWG-h4-9UZ" firstAttribute="leading" secondItem="FVc-xg-3MW" secondAttribute="trailing" constant="8" id="Uxh-Vv-Xsv"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ck1-q0-3TQ" secondAttribute="bottom" constant="3" id="Xwy-cV-TOz"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Ck1-q0-3TQ" secondAttribute="trailing" constant="4" id="Yha-RG-ero"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ffD-dn-iQx" secondAttribute="trailing" constant="2" id="bzW-qB-eU8"/>
                                                 <constraint firstItem="Ck1-q0-3TQ" firstAttribute="top" secondItem="ffD-dn-iQx" secondAttribute="bottom" constant="8" id="q3y-qH-Xjm"/>
                                                 <constraint firstItem="FVc-xg-3MW" firstAttribute="top" secondItem="s4L-wJ-fMN" secondAttribute="bottom" constant="8" id="u0t-ww-IYW"/>
                                                 <constraint firstItem="s4L-wJ-fMN" firstAttribute="top" secondItem="uDc-4x-rEj" secondAttribute="topMargin" id="vWG-4Q-ms7"/>
@@ -334,6 +335,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MesanQuiz" id="JwF-3K-3Ws">
+                        <barButtonItem key="backBarButtonItem" title="Avslutt" id="w11-jq-AUB"/>
                         <barButtonItem key="rightBarButtonItem" image="plus" id="1lE-DT-FK4">
                             <connections>
                                 <segue destination="Ynm-yv-QC5" kind="show" id="r6z-1Q-OJK"/>

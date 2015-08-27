@@ -32,7 +32,6 @@ class GameQuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.hidesBackButton = true
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
