@@ -374,7 +374,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fmm-P2-gNG" kind="show" id="Whv-ns-4Im"/>
+                                    <segue destination="fmm-P2-gNG" kind="show" identifier="continueToQuestions" id="Whv-ns-4Im"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiznavn " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmf-MM-9gJ">
@@ -407,6 +407,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="H1z-hF-Vap">
                                 <rect key="frame" x="14" y="271" width="572" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="Ynm-yv-QC5" eventType="valueChanged" id="kZF-LB-d0w"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 sekunder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEA-8a-5HA">
                                 <rect key="frame" x="253" y="309" width="95" height="21"/>
@@ -445,6 +448,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Opprett quiz" id="wJJ-4u-hZ2"/>
+                    <connections>
+                        <outlet property="quiznameText" destination="UPl-Es-lu0" id="a1M-Yq-Fgw"/>
+                        <outlet property="timeSlider" destination="H1z-hF-Vap" id="eFq-6H-jNE"/>
+                        <outlet property="timeText" destination="OEA-8a-5HA" id="cT1-0G-XuK"/>
+                        <outlet property="topicText" destination="UJY-W4-cxh" id="k4w-Ub-yfm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GU2-r3-nwP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -553,6 +562,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="createQuiz:" destination="fmm-P2-gNG" eventType="touchUpInside" id="cFg-fw-HoL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

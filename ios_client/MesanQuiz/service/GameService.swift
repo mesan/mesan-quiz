@@ -54,4 +54,8 @@ class GameService {
             NSNotificationCenter.defaultCenter().postNotificationName(GameService.GET_GAME_SUCCESS, object: nil, userInfo: [GameService.GAME_KEY: game!])
         }
     }
+    
+    func createGame(game: Game) {
+        // TODO
+    }
 }

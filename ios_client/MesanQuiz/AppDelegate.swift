@@ -12,7 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    // TODO: temporary until we can actually login
+    let user = Person(fullName: "Tore Brandtzæg", shortName: "toreb", profileImageUrl: "http://faghelg.s3-website-eu-west-1.amazonaws.com/toreb.png")
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

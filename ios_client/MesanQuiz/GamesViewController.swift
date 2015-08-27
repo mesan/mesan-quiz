@@ -18,6 +18,9 @@ class GamesViewController: UIViewController, UITableViewDataSource, UITableViewD
         initObservers()
 
         gameService = GameService()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         gameService.getGames()
     }
     
@@ -38,13 +41,6 @@ class GamesViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.games = games
                 self.tableView.reloadData()
             })
-        }
-    }
-    
-    func getGames() {
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            self.gameService.getGames()
         }
     }
     

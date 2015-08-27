@@ -21,7 +21,7 @@ class QuizResultViewController: UIViewController, UITableViewDataSource, UITable
         self.navigationItem.hidesBackButton = true
         scoreLabel.text = "\(newResult.score) / \(newResult.numberOfQuestions) riktige!"
         
-        var percentage = Double(newResult.score)/Double(newResult.numberOfQuestions)
+        var percentage = Double(newResult.score) / Double(newResult.numberOfQuestions)
         switch percentage {
         case 1:
             feedbackLabel.text = "Awesome! 😎"
@@ -46,14 +46,6 @@ class QuizResultViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     @IBAction func backToQuizzesClicked(sender: AnyObject) {
-        //self.dismissViewControllerAnimated(true, completion: nil)
         self.navigationController!.popToRootViewControllerAnimated(true)
-        
-        /*for viewController in self.navigationController!.viewControllers {
-            if viewController.isKindOfClass(GamesViewController) {
-                let gamesViewController = viewController as! GamesViewController
-                self.navigationController!.popToViewController(gamesViewController, animated: true)
-            }
-        }*/
     }
 }

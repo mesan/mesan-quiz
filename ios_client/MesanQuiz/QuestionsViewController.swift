@@ -5,18 +5,19 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "QuestionCell"
-    var questions: [Question]!
+    var quiz: Game!
+    let gameService = GameService()
     
     override func viewDidLoad() {
-        questions = []
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questions.count
+        return self.quiz.questions!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let question = questions[indexPath.row]
+        let question = self.quiz.questions![indexPath.row]
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! QuestionCell
         cell.setQuestion(question)
@@ -24,11 +25,16 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
-    
     @IBAction func reset(segue: UIStoryboardSegue) {
         let createQuestionViewController = segue.sourceViewController as! CreateQuestionViewController
         let question = createQuestionViewController.question
-        self.questions.append(question)
+        self.quiz.questions?.append(question)
         self.tableView.reloadData()
+    }
+    
+    @IBAction func createQuiz(sender: AnyObject) {
+        gameService.createGame(self.quiz)
+        
+        self.navigationController!.popToRootViewControllerAnimated(true)
     }
 }
