@@ -34,8 +34,10 @@ import no.mesan.mesanquiz.view.AbstractActivity;
 import no.mesan.mesanquiz.view.MenuAdapter;
 import no.mesan.mesanquiz.view.game.ResultFragment;
 import no.mesan.mesanquiz.view.model.MenuItem;
+import no.mesan.mesanquiz.view.newquiz.NewQuizFragment;
 import no.mesan.mesanquiz.view.profile.LoginFragment;
 import no.mesan.mesanquiz.view.game.QuestionFragment;
+import no.mesan.mesanquiz.view.quizlist.QuizListFragment;
 
 import static no.mesan.mesanquiz.common.Constants.AUTHORITY_URL;
 import static no.mesan.mesanquiz.common.Constants.CLIENT_ID;
@@ -139,7 +141,8 @@ public class MainActivity extends AbstractActivity {
             Toast.makeText(context, "Encryption failed", Toast.LENGTH_SHORT).show();
         }
 
-        goToFragment(LoginFragment.class, false);
+//        goToFragment(LoginFragment.class, false);
+        goToFragment(NewQuizFragment.class, false);
     }
 
     @Override
@@ -246,7 +249,7 @@ public class MainActivity extends AbstractActivity {
 
                 if (authenticationResult.getUserInfo() != null) {
                     updateLoginButton();
-                    goToFragment(QuestionFragment.class, true);
+                    goToFragment(QuizListFragment.class, null, true);
                 }
                 BusProvider.getInstance().post(new LoggedInEvent());
             }

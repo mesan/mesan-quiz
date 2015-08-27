@@ -8,6 +8,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Path("/scores")
@@ -30,7 +32,14 @@ public class ScoreResource {
     @Path("/{game}")
     @Timed
     public List<Score> getHighScores(@PathParam("game") long game) {
-        return scoreService.getHighScores(game);
+        List<Score> scores = scoreService.getHighScores(game);
+        Collections.sort(scores, new Comparator<Score>() {
+            @Override
+            public int compare(Score score1, Score score2) {
+                return Integer.compare(score1.getCorrectAnswers(), score2.getCorrectAnswers());
+            }
+        });
+        return scores;
     }
 
     @GET

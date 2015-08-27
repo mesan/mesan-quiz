@@ -9,5 +9,6 @@
     <color name="mesan_red_dark">#a00000</color>
     <color name="mesan_grey">#222222</color>
     <color name="mesan_light_grey">#bbbbbb</color>
+    <color name="mesan_light_grey_2">#eeeeee</color>
     <color name="green">#689402</color>
 </resources>
